@@ -1,0 +1,20 @@
+.header-container{
+    height: 56px;
+    padding: 8px 16px;
+    box-shadow: 0px 1px 4px -1px rgba(234, 172, 255, 0.39);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon-container{
+    display: flex;
+    gap: 8px;
+}
+
+.icon-item{
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-content: center;
+}
