@@ -1,5 +1,4 @@
 .header-container{
-    height: 56px;
     padding: 8px 16px;
     box-shadow: 0px 1px 4px -1px rgba(234, 172, 255, 0.39);
     display: flex;
@@ -7,14 +6,19 @@
     align-items: center;
 }
 
-.icon-container{
+.icons-container{
     display: flex;
     gap: 8px;
 }
 
 .icon-item{
-    width: 40px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
     display: grid;
     place-content: center;
+
+    &__content{
+        font-size: 1.5rem;
+        color: #4A4A4A;
+    }
 }

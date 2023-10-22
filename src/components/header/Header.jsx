@@ -1,23 +1,29 @@
+// SCSS
 import '../../scss/components/header/header.scss'
-import { MdSupervisedUserCircle, MdMenu, MdNotificationsNone, MdOutlineCalendarMonth } from "react-icons/md";
+
+// Components
+import { MdSupervisedUserCircle, MdMenu, MdOutlineCalendarMonth } from "react-icons/md";
+
+// Custom components
+import NotificationsIcon from '../icons/NotificationsIcon';
 
 function Header() {
     return (
         <header className='header-container'>
             <div>
                 <div className='icon-item'>
-                    <MdMenu style={{color: '#4A4A4A', fontSize: 24}}/>
+                    <MdMenu  className='icon-item__content'/>
                 </div>
             </div>
-            <div className='icon-container'>
+            <div className='icons-container'>
                 <div className='icon-item'>
-                    <MdNotificationsNone style={{color: '#4A4A4A', fontSize: 24}}/>
+                    <NotificationsIcon />
                 </div>
                 <div className='icon-item'>
-                    <MdOutlineCalendarMonth style={{color: '#4A4A4A', fontSize: 24}}/>
+                    <MdOutlineCalendarMonth className='icon-item__content'/>
                 </div>
                 <div className='icon-item'>
-                    <MdSupervisedUserCircle style={{color: '#4A4A4A', fontSize: 24}}/>
+                    <MdSupervisedUserCircle className='icon-item__content'/>
                 </div>
             </div>
         </header>
