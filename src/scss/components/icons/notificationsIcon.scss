@@ -1,0 +1,17 @@
+.notifications-icon{
+    position: relative;
+    &__ellipse{
+        background-color: #EAACFF;
+        width: .5rem;
+        height: .5rem;
+        position: absolute;
+        right: .25rem;
+        top: .25rem;
+        border-radius: 50%;
+    }
+
+    &__bell{
+        font-size: 1.5rem;
+        color: #4A4A4A;
+    }
+}
