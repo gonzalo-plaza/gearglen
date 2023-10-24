@@ -1,0 +1,25 @@
+.sidebar-user{
+    font-family: 'Goldman';
+    line-height: normal;
+    color: #fff;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 8px;
+    padding-bottom: 16px;
+
+    &__icon{
+        color: #3BBEAA;
+        font-size: 80px;
+    }
+
+    &__name{
+        margin-top: 16px;
+    }
+    
+    &__email{
+        font-size: 12px;
+    }
+}
