@@ -1,0 +1,16 @@
+.sidebar-container{
+    width: 264px;
+    background-color: #471AA0;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    box-shadow: 4px 0px 4px 0px rgba(234, 172, 255, 0.25);
+}
+
+.modal-backdrop{
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.50);
+    width: 100vw;
+    height: 100vh;
+}
