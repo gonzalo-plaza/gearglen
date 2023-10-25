@@ -5,6 +5,7 @@
     position: fixed;
     top: 0;
     box-shadow: 4px 0px 4px 0px rgba(234, 172, 255, 0.25);
+    overflow-y: auto;
 }
 
 .modal-backdrop{
@@ -13,4 +14,25 @@
     background-color: rgba(0, 0, 0, 0.50);
     width: 100vw;
     height: 100vh;
+}
+
+.sidebar-nav{
+    font-family: 'Inter';
+    padding-left: 16px;
+    color: #fff;
+
+    &__title{
+        font-size: 12px;
+        line-height: normal;
+        font-weight: normal;
+    }
+}
+
+.sidebar-nav-section{
+    padding-top: 16px;
+}
+
+.sidebar-nav-links-container{
+    list-style: none;
+    padding: 0;
 }
