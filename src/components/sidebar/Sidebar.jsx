@@ -9,11 +9,15 @@ import SideBarHeader from './header/SidebarHeader'
 import SidebarUser from './user/SidebarUser'
 import SideBarItem from './items/SidebarItem'
 
+// Store
+import { useSidebarStore } from '../../store/sidebarStore'
+
 function Sidebar() {
+    const showSidebar = useSidebarStore(state => state.showSidebar)
     return (
         <>
-            <div aria-hidden="true" className="modal-backdrop" />
-            <aside className="sidebar-container">
+            <div aria-hidden="true" className={`modal-backdrop ${showSidebar ? 'show' : ''}`} />
+            <aside className={`sidebar-container ${showSidebar ? 'show' : ''}`}>
                 <SideBarHeader />
                 <SidebarUser />
                 <nav className="sidebar-nav">

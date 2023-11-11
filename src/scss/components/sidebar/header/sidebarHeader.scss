@@ -3,6 +3,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 8px 16px;
+    overflow-x: hidden;
+    min-width: 264px;
+    min-height: 56px;
 }
 
 .sidebar-header-logo{
@@ -26,5 +29,9 @@
     &__icon{
         font-size: 24px;
         color: #3BBEAA;
+    }
+
+    @media (min-width: 1024px) {
+        display: none;
     }
 }

@@ -16,7 +16,7 @@ function Header() {
     return (
         <header className='header-container'>
             <div>
-                <div className='icon-item' onClick={handleClick} role='button'>
+                <div className='icon-item is-menu' onClick={handleClick} role='button'>
                     <MdMenu  className='icon-item__content'/>
                 </div>
             </div>

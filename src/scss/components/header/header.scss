@@ -4,6 +4,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (min-width: 1024px){
+        align-self: flex-start;
+        flex-grow: 1;
+    }
 }
 
 .icons-container{
@@ -21,5 +26,11 @@
     &__content{
         font-size: 1.5rem;
         color: #4A4A4A;
+    }
+
+    &.is-menu{
+        @media (min-width: 1024px){
+            display: none;
+        }
     }
 }
