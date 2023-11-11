@@ -6,12 +6,17 @@ import { MdSupervisedUserCircle, MdMenu, MdOutlineCalendarMonth } from "react-ic
 
 // Custom components
 import NotificationsIcon from '../icons/NotificationsIcon';
-
+import { useSidebarStore } from '../../store/sidebarStore';
 function Header() {
+    const launchSidebar = useSidebarStore(state => state.launchSidebar)
+
+    const handleClick = () => {
+        launchSidebar()
+    }
     return (
         <header className='header-container'>
             <div>
-                <div className='icon-item'>
+                <div className='icon-item' onClick={handleClick} role='button'>
                     <MdMenu  className='icon-item__content'/>
                 </div>
             </div>
