@@ -1,6 +1,3 @@
-// SCSS
-import '../../styles/components/icons/notificationsIcon.scss'
-
 // Components
 import { MdNotificationsNone } from "react-icons/md";
 

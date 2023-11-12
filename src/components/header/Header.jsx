@@ -1,6 +1,3 @@
-// SCSS
-import '../../styles/components/header/header.scss'
-
 // Components
 import { MdSupervisedUserCircle, MdMenu, MdOutlineCalendarMonth } from "react-icons/md";
 

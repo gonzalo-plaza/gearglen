@@ -1,6 +1,3 @@
-//SCSS
-import '../../../scss/components/sidebar/header/sidebarHeader.scss'
-
 // Components
 import { MdClear } from 'react-icons/md'
 import { useSidebarStore } from '../../../store/sidebarStore';
