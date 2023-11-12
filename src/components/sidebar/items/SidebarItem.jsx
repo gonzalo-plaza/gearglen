@@ -1,5 +1,3 @@
-import '../../../styles/components/sidebar/items/sidebarItem.scss'
-
 function SideBarItem({ Icon, title, href, text }) {
     return (
         <li className="sidebar-nav-link">

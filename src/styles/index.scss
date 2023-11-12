@@ -1,5 +1,15 @@
 @import url('./utils/fonts/goldman.scss');
 @import url('./utils/fonts/inter.scss');
+@import './tokens/all.scss';
+@import './mixins/all.scss';
+
+//Components
+@import './components/header/header';
+@import './components/icons/notificationsIcon';
+@import './components/sidebar/sidebar';
+@import './components/sidebar/header/sidebarHeader';
+@import './components/sidebar/items/sidebarItem';
+@import './components/sidebar/user/sidebarUser';
 
 /*
   1. Use a more-intuitive box-sizing model.

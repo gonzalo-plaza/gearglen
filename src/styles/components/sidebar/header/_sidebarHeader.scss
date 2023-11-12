@@ -15,7 +15,7 @@
 
     &__text{
         font-family: 'Goldman'; 
-        color: #3BBEAA;
+        color: $secondary-color;
     }
 }
 
@@ -28,7 +28,7 @@
 
     &__icon{
         font-size: 24px;
-        color: #3BBEAA;
+        color: $secondary-color;
     }
 
     @media (min-width: 1024px) {
