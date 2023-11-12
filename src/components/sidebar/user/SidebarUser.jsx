@@ -1,5 +1,5 @@
 // SCSS
-import '../../../scss/components/sidebar/user/sidebarUser.scss';
+import '../../../styles/components/sidebar/user/sidebarUser.scss';
 
 // Components
 import { MdSupervisedUserCircle } from 'react-icons/md'

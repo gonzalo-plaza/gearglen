@@ -1,5 +1,5 @@
 // SCSS
-import '../../scss/components/sidebar/sidebar.scss'
+import '../../styles/components/sidebar/sidebar.scss'
 
 // Components
 import { MdDirectionsCarFilled, MdChildCare, MdTireRepair, MdManageAccounts, MdVerified, MdOutlinePowerSettingsNew, MdSupportAgent, MdOutlineHelpOutline } from 'react-icons/md'

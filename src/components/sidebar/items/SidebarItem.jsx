@@ -1,4 +1,4 @@
-import '../../../scss/components/sidebar/items/sidebarItem.scss'
+import '../../../styles/components/sidebar/items/sidebarItem.scss'
 
 function SideBarItem({ Icon, title, href, text }) {
     return (
