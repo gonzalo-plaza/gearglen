@@ -1,3 +1,6 @@
+@import url('./utils/fonts/goldman.scss');
+@import url('./utils/fonts/inter.scss');
+
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -43,4 +46,11 @@
   */
   #root, #__next {
     isolation: isolate;
+  }
+
+  .app-container{
+    @media(min-width: 1024px){
+      display: flex;
+      flex-direction: row-reverse;
+    }
   }

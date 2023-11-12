@@ -1,0 +1,37 @@
+.sidebar-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    overflow-x: hidden;
+    min-width: 264px;
+    min-height: 56px;
+}
+
+.sidebar-header-logo{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &__text{
+        font-family: 'Goldman'; 
+        color: #3BBEAA;
+    }
+}
+
+.sidebar-header-close{
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    width: 40px;
+    height: 40px;
+
+    &__icon{
+        font-size: 24px;
+        color: #3BBEAA;
+    }
+
+    @media (min-width: 1024px) {
+        display: none;
+    }
+}
