@@ -108,6 +108,10 @@ h6 {
   overflow: hidden;
 }
 
+.home-section{
+  margin-bottom: 24px;
+}
+
 .section{
   &__title{
     font-family: Goldman;
@@ -127,5 +131,11 @@ h6 {
   &__img{
     margin-top: 24px;
     margin-bottom: 32px;
+  }
+
+  &__description{
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
   }
 }
