@@ -1,0 +1,36 @@
+.footer {
+    font-family: Goldman;
+    font-size: 10px;
+    color: $light-color;
+    background-color: $primary-color;
+    padding: 8px;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &.is-left {
+        min-width: 116px;
+    }
+
+    &.is-right {
+        text-align: right;
+        max-width: 210px;
+    }
+
+    &__text {
+        &.has-icon {
+            display: flex;
+            line-height: 10px;
+            height: 15px;
+            align-items: center;
+            gap: 4px;
+        }
+    }
+}

@@ -1,3 +1,4 @@
+import { Footer } from './components/footer/Footer';
 import Header from './components/header/Header'
 import { HomeInfoCards } from './components/homeInfoCards/HomeInfoCards'
 import Sidebar from './components/sidebar/Sidebar'
@@ -22,12 +23,11 @@ function App() {
               Disfruta de la comodidad de tener tu vehículo en perfecto estado con GearGlen. Gestiona el mantenimiento y las reparaciones con nuestro sistema completo que garantiza la eficiencia y seguridad de cada viaje.
             </p>
           </section>
-          <footer>
-            
-          </footer>
         </main>
+        <Footer/>
       </div>
       <Sidebar />
+
     </>
   )
 }
