@@ -115,6 +115,8 @@ h6 {
 
 .section {
   margin-bottom: 24px;
+  max-width: 2000px;
+  margin: 0px auto 24px auto;
 }
 
 .section-header {
@@ -125,7 +127,7 @@ h6 {
 
 .section-description{
   &.has-description{
-    @media(min-width: 769px){
+   @include mq-tablet{
       display: grid;
       grid-template-columns: 55% 1fr;
       align-items: center;
@@ -136,10 +138,9 @@ h6 {
     @media(min-width: 1024px){
       display: grid;
       place-items: center;
-    }
-
-    .section-description__img{
-      max-width: 65%;
+      .section-description__img{
+        max-width: 65%;
+      }
     }
   }
   &__img {
@@ -152,8 +153,12 @@ h6 {
     line-height: normal;
     text-align: center;
 
-    @media(min-width: 769px){
+   @include mq-tablet{
       font-size: 18px;
+    }
+
+    @include mq-desktop{
+      font-size: 20px;
     }
   }
 }
@@ -165,7 +170,7 @@ h6 {
   font-weight: 400;
   color: $primary-color;
 
-  @media(min-width: 769px){
+ @include mq-tablet{
     font-size: 34px;
   }
   &__line {
@@ -176,30 +181,20 @@ h6 {
     margin: 0 auto;
     border-radius: 1px;
 
-    @media(min-width: 769px){
+   @include mq-tablet{
       height: 2.125px;
     }
   }
 }
 
 .home-info-cards-container {
-  /**
-  * User input values.
-  */
-  --grid-layout-gap: 8px;
-  --grid-column-count: 2;
-  /* This gets overridden by an inline style. */
-  --grid-item--min-width: 288px;
-  /* This gets overridden by an inline style. */
+  @include grid-max-auto-columns(8px, 2, 288px);
 
-  /**
-   * Calculated values.
-   */
-  --gap-count: calc(var(--grid-column-count) - 1);
-  --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
-  --grid-item--max-width: calc((100% - var(--total-gap-width)) / var(--grid-column-count));
+  @include mq-desktop{
+    @include grid-max-auto-columns(16px, 4, 288px);
 
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr));
-  grid-gap: var(--grid-layout-gap);
+    & .info-card:last-child{
+      grid-column: -2;
+    }
+  }
 }
