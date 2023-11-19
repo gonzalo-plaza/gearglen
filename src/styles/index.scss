@@ -92,6 +92,8 @@ h6 {
 }
 
 .main-container {
+  min-width: 320px;
+
   @media (min-width: 1024px) {
     align-self: flex-start;
     flex-grow: 1;
@@ -99,44 +101,92 @@ h6 {
 
 }
 
-.main{
-  min-height:  unquote("calc(100vh - 112px)");
+.main {
+  min-height: unquote("calc(100vh - 112px)");
   background-color: $extra-color;
   padding: 16px;
 }
 
-.scroll-block{
+.scroll-block {
   overflow: hidden;
 }
 
-.home-section{
+.section {
   margin-bottom: 24px;
 }
 
-.section{
-  &__title{
-    font-family: Goldman;
-    font-size: 24px;
-    text-align: center;
-    font-weight: 400;
-    color: $primary-color;
-  }
+.section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  &__title-line{
-    width: 53.75%;
-    height: 1.5px;
-    background-color: $secondary-color;
-    margin: 0 auto;
+.section-description{
+  &.has-description{
+    @media(min-width: 769px){
+      display: grid;
+      grid-template-columns: 55% 1fr;
+      align-items: center;
+    }
   }
-
-  &__img{
+  &__img {
     margin-top: 24px;
     margin-bottom: 32px;
   }
 
-  &__description{
+  &__text{
     font-weight: 500;
     line-height: normal;
     text-align: center;
+
+    @media(min-width: 769px){
+      font-size: 18px;
+    }
   }
+}
+
+.section-header-title {
+  font-family: Goldman;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 400;
+  color: $primary-color;
+
+  @media(min-width: 769px){
+    font-size: 34px;
+  }
+  &__line {
+    display: block;
+    width: 75%;
+    height: 1.5px;
+    background-color: $secondary-color;
+    margin: 0 auto;
+    border-radius: 1px;
+
+    @media(min-width: 769px){
+      height: 2.125px;
+    }
+  }
+}
+
+.home-info-cards-container {
+  /**
+  * User input values.
+  */
+  --grid-layout-gap: 8px;
+  --grid-column-count: 2;
+  /* This gets overridden by an inline style. */
+  --grid-item--min-width: 288px;
+  /* This gets overridden by an inline style. */
+
+  /**
+   * Calculated values.
+   */
+  --gap-count: calc(var(--grid-column-count) - 1);
+  --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+  --grid-item--max-width: calc((100% - var(--total-gap-width)) / var(--grid-column-count));
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr));
+  grid-gap: var(--grid-layout-gap);
 }

@@ -1,6 +1,7 @@
 import { Footer } from './components/footer/Footer';
 import Header from './components/header/Header'
 import { HomeInfoCards } from './components/homeInfoCards/HomeInfoCards'
+import { Section } from './components/section/Section';
 import Sidebar from './components/sidebar/Sidebar'
 
 function App() {
@@ -9,22 +10,15 @@ function App() {
       <div className='main-container'>
         <Header />
         <main role='main' className='main'>
-          <section className='home-section'>
-            <h1 className='section__title'>Tu Vehículo en Forma</h1>
-            <div className='section__title-line'></div>
-            <img className='section__img' src='./images/vehicles-collection.png' />
+          <Section title='Tu Vehículo en Forma' img='./images/vehicles-collection.png'>
             <HomeInfoCards />
-          </section>
-          <section>
-            <h1 className='section__title'>Mantén tu Vehículo Siempre Listo</h1>
-            <div className='section__title-line'></div>
-            <img className='section__img' src='./images/car-maintenance.png' />
-            <p className='section__description'>
-              Disfruta de la comodidad de tener tu vehículo en perfecto estado con GearGlen. Gestiona el mantenimiento y las reparaciones con nuestro sistema completo que garantiza la eficiencia y seguridad de cada viaje.
-            </p>
-          </section>
+          </Section>
+          <Section title='Tu Vehículo en Forma'
+            img='./images/car-maintenance.png'
+            description='Disfruta de la comodidad de tener tu vehículo en perfecto estado con GearGlen. Gestiona el mantenimiento y las reparaciones con nuestro sistema completo que garantiza la eficiencia y seguridad de cada viaje.'>
+          </Section>
         </main>
-        <Footer/>
+        <Footer />
       </div>
       <Sidebar />
 
