@@ -1,5 +1,5 @@
 export const Section = ({ children, title, img, description }) => {
-    const hasDescriptionClass = description ? 'has-description' : '';
+    const hasDescriptionClass = description ? 'has-description' : 'has-no-description';
     return (
         <section className='section'>
             <header className='section-header'>

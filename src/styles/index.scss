@@ -95,6 +95,8 @@ h6 {
   min-width: 320px;
 
   @media (min-width: 1024px) {
+    height: 100vh;
+    overflow-y: scroll;
     align-self: flex-start;
     flex-grow: 1;
   }
@@ -127,6 +129,17 @@ h6 {
       display: grid;
       grid-template-columns: 55% 1fr;
       align-items: center;
+    }
+  }
+
+  &.has-no-description{
+    @media(min-width: 1024px){
+      display: grid;
+      place-items: center;
+    }
+
+    .section-description__img{
+      max-width: 65%;
     }
   }
   &__img {
