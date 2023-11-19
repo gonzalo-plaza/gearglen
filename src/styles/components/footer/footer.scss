@@ -9,8 +9,12 @@
     justify-content: space-between;
     gap: 8px;
 
-    @media(min-width: 769px){
+   @include mq-tablet{
         font-size: 11px;
+    }
+
+    @include mq-desktop{
+        font-size: 13px;
     }
 }
 
@@ -27,7 +31,7 @@
         text-align: right;
         max-width: 210px;
 
-        @media(min-width: 769px){
+       @include mq-tablet{
             max-width: none;
         }
     }
@@ -40,9 +44,14 @@
             align-items: center;
             gap: 4px;
 
-            @media(min-width: 769px){
+           @include mq-tablet{
                 line-height: 11px;
                 height: 17px;
+            }
+
+            @include mq-desktop{
+                line-height: 13px;
+                height: 19px;
             }
         }
     }
