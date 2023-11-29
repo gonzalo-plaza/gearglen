@@ -4,9 +4,12 @@
     align-items: center;
     gap: 16px;
     padding-left: 16px;
+    padding-right: 16px;
 
     padding-top: 8px;
     padding-bottom: 8px;
+
+    text-decoration: none;
 
     &:hover{
         background-color: $secondary-color;
@@ -15,18 +18,42 @@
             color: #FFF;
         }
     }
+    &.is-blocked{
+        pointer-events: none;
+    }
     
     &__icon{
         font-size: 24px;
         color: $secondary-color;
+
+        &.is-blocked-icon{
+            font-size: 22px;
+        }
+
+        &.is-blocked{
+            opacity: 0.5;
+        }
     }
 
-    &__anchor{
+    &__text{
         font-size: 12px;
         line-height: normal;
         font-weight: normal;
+        flex-grow: 1;
 
-        text-decoration: none;
+        
         color: #fff;
+
+        &.is-blocked{
+            opacity: 0.5;
+        }
+    }
+
+    &.active{
+        background-color: $secondary-color;
+
+        & .sidebar-nav-link__icon{
+            color: #FFF;
+        }
     }
 }

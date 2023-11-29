@@ -1,5 +1,5 @@
 // Components
-import { MdDirectionsCarFilled, MdChildCare, MdTireRepair, MdManageAccounts, MdVerified, MdOutlinePowerSettingsNew, MdSupportAgent, MdOutlineHelpOutline } from 'react-icons/md'
+import { MdDirectionsCarFilled, MdHomeFilled, MdChildCare, MdTireRepair, MdManageAccounts, MdVerified, MdOutlinePowerSettingsNew, MdSupportAgent, MdOutlineHelpOutline } from 'react-icons/md'
 
 // Custom components
 import SideBarHeader from './header/SidebarHeader'
@@ -21,24 +21,25 @@ function Sidebar() {
                     <section className='sidebar-nav-section'>
                         <h2 className="sidebar-nav__title">Garaje</h2>
                         <ul className="sidebar-nav-links-container">
-                            <SideBarItem Icon={MdDirectionsCarFilled} href="test" title="Haz click para ver tus vehículos" text="Mis vehículos" />
-                            <SideBarItem Icon={MdChildCare} href="test" title="Haz click para acceder al mecánico virtual" text="Mecánico Virtual" />
-                            <SideBarItem Icon={MdTireRepair} href="test" title="Haz click para acceder a tu taller" text="Mi taller" />
+                            <SideBarItem Icon={MdHomeFilled} href="/" title="Haz click para ir a la vista principal" text="Inicio" />
+                            <SideBarItem Icon={MdDirectionsCarFilled} href="/mis-vehiculos" title="Haz click para ver tus vehículos" text="Mis vehículos" />
+                            <SideBarItem Icon={MdChildCare} blocked='true' href="/mecanico-virtual" title="Haz click para acceder al mecánico virtual" text="Mecánico Virtual" />
+                            <SideBarItem Icon={MdTireRepair} blocked='true' href="/mi-taller" title="Haz click para acceder a tu taller" text="Mi taller" />
                         </ul>
                     </section>
                     <section className='sidebar-nav-section'>
                         <h2 className="sidebar-nav__title">Mi Perfil</h2>
                         <ul className="sidebar-nav-links-container">
-                            <SideBarItem Icon={MdManageAccounts} href="test" title="Haz click para acceder a los ajustes del perfil" text="Ajustes de mi perfil" />
-                            <SideBarItem Icon={MdVerified} href="test" title="Haz click para acceder a tu suscripción" text="Mi suscripción" />
-                            <SideBarItem Icon={MdOutlinePowerSettingsNew} href="test" title="Haz click para cerrar sesión" text="Cerrar sesión" />
+                            <SideBarItem Icon={MdManageAccounts} blocked='true' href="/mi-perfil" title="Haz click para acceder a los ajustes del perfil" text="Ajustes de mi perfil" />
+                            <SideBarItem Icon={MdVerified} blocked='true' href="/mi-suscripcion" title="Haz click para acceder a tu suscripción" text="Mi suscripción" />
+                            <SideBarItem Icon={MdOutlinePowerSettingsNew} blocked='true' href="/cerrar-sesion" title="Haz click para cerrar sesión" text="Cerrar sesión" />
                         </ul>
                     </section>
                     <section className='sidebar-nav-section'>
                         <h2 className="sidebar-nav__title">Ayuda</h2>
                         <ul className="sidebar-nav-links-container">
-                            <SideBarItem Icon={MdSupportAgent} href="test" title="Haz click para solicitar soporte" text="Soporte" />
-                            <SideBarItem Icon={MdOutlineHelpOutline} href="test" title="Haz click para acceder a las preguntas frecuentes" text="Preguntas frecuentes" />
+                            <SideBarItem Icon={MdSupportAgent} blocked='true' href="/soporte" title="Haz click para solicitar soporte" text="Soporte" />
+                            <SideBarItem Icon={MdOutlineHelpOutline} blocked='true' href="/preguntas-frecuentes" title="Haz click para acceder a las preguntas frecuentes" text="Preguntas frecuentes" />
                         </ul>
                     </section>
                 </nav>
