@@ -1,8 +1,13 @@
-function SideBarItem({ Icon, title, href, text }) {
+import { NavLink } from "react-router-dom";
+import { MdLock } from "react-icons/md";
+function SideBarItem({ Icon, title, blocked, href, text }) {
     return (
-        <li className="sidebar-nav-link">
-            <Icon className="sidebar-nav-link__icon" />
-            <a className="sidebar-nav-link__anchor" href={href} title={title}>{text}</a>
+        <li>
+        <NavLink to={href} title={title} className={`sidebar-nav-link ${blocked ? 'is-blocked': ''}`}>
+            <Icon className={`sidebar-nav-link__icon ${blocked ? 'is-blocked': ''}`} />
+            <span className={`sidebar-nav-link__text ${blocked ? 'is-blocked': ''}`}>{text}</span>
+            {blocked && <MdLock className="sidebar-nav-link__icon is-blocked-icon"/>}
+        </NavLink>
         </li>
     )
 }
