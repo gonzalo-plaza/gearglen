@@ -7,66 +7,151 @@
     right: 0;
     z-index: 40;
     align-items: flex-end;
-  
+
     &__background {
-      &.is-active {
-        background-color: rgba(0, 0, 0, 0.50);
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-      }
+        &.is-active {
+            background-color: rgba(0, 0, 0, 0.50);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
     }
-  
-    @include mq-tablet{
-      justify-content: center;
-      align-items: center;
+
+    @include mq-tablet {
+        justify-content: center;
+        align-items: center;
     }
-  
+
     &.is-active {
-      display: flex;
+        display: flex;
     }
-  }
-  
-  .vehicle-modal-card {
+}
+
+.vehicle-modal-card {
     position: relative;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 60%;
+    max-height: 65%;
     background-color: $light-color;
     bottom: -100%;
     transition: bottom 0.6s;
-  
+
     border-radius: 8px 8px 0px 0px;
-  
+
     &.is-active {
-      bottom: 0;
+        bottom: 0;
     }
-  
-    @include mq-tablet{
-      bottom: 100%;
-      width: 60%;
-      max-width: 1200px;
-      border-radius: 8px;
+
+    @include mq-tablet {
+        bottom: 100%;
+        width: 60%;
+        max-width: 1200px;
+        border-radius: 8px;
     }
-  }
-  
-  .vehicle-modal-card-header {
+}
+
+.vehicle-modal-card-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 8px 8px 8px 16px;
     box-shadow: 0px 1px 4px -1px rgba(234, 172, 255, 0.39);
-  }
-  
-  .vehicle-modal-close {
+}
+
+.vehicle-modal-card-body {
+    max-height: 100%;
+    padding: 16px;
+    overflow-y: scroll;
+}
+
+.vehicle-modal-close {
     cursor: pointer;
     display: grid;
     place-content: center;
     width: 40px;
     height: 40px;
-  
+
     &__icon {
-      font-size: 24px;
+        font-size: 24px;
     }
-  }
+}
+
+.add-vehicle-form {
+    font-size: 14px;
+    color: #333;
+
+    &__select {
+        width: 100%;
+        font-size: 14px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        padding: 10px 25px 10px 6px;
+        margin-bottom: 20px;
+        border: none;
+        border-bottom: 1px solid $secondary-color;
+        background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%233BBEAA'><polygon points='0,0 100,0 50,50'/></svg>") no-repeat;
+        background-size: 16px;
+        background-position: calc(100% - 5px) 17px;
+        background-repeat: no-repeat;
+
+        &:required:invalid {
+            color: #757575;
+        }
+
+        & option[value=""][disabled] {
+            display: none;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        padding: 10px 6px 10px 6px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        -webkit-appearance: none;
+        background: none;
+        -moz-appearance: none;
+        appearance: none;
+        border: none;
+        border-bottom: 1px solid $secondary-color;
+
+        &.is-date {
+            padding: 9px 0px;
+        }
+    }
+}
+
+.add-vehicle-form-input-group {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+
+    & .grow-1 {
+        flex-grow: 1;
+    }
+}
+
+.vehicle-modal-card-footer {
+    display: flex;
+    justify-content: space-between;
+
+    &__button {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 8px;
+
+        &.is-primary {
+            background-color: $primary-color;
+            color: $light-color;
+        }
+    }
+}
