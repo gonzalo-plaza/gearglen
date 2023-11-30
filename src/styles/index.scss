@@ -8,6 +8,7 @@
 @import './components/icons/notificationsIcon';
 @import './components/sidebar/sidebar';
 @import './components/sidebar/header/sidebarHeader';
+@import './components/modals/addVehicleModal/addVehicleModal.scss';
 @import './components/sidebar/items/sidebarItem';
 @import './components/sidebar/user/sidebarUser';
 @import './components/infoCard/infoCard.scss';
@@ -27,6 +28,10 @@
   */
 * {
   margin: 0;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 /*
@@ -125,39 +130,41 @@ h6 {
   align-items: center;
 }
 
-.section-description{
-  &.has-description{
-   @include mq-tablet{
+.section-description {
+  &.has-description {
+    @include mq-tablet {
       display: grid;
       grid-template-columns: 55% 1fr;
       align-items: center;
     }
   }
 
-  &.has-no-description{
-    @media(min-width: 1024px){
+  &.has-no-description {
+    @media(min-width: 1024px) {
       display: grid;
       place-items: center;
-      .section-description__img{
+
+      .section-description__img {
         max-width: 65%;
       }
     }
   }
+
   &__img {
     margin-top: 24px;
     margin-bottom: 32px;
   }
 
-  &__text{
+  &__text {
     font-weight: 500;
     line-height: normal;
     text-align: center;
 
-   @include mq-tablet{
+    @include mq-tablet {
       font-size: 18px;
     }
 
-    @include mq-desktop{
+    @include mq-desktop {
       font-size: 20px;
     }
   }
@@ -170,9 +177,10 @@ h6 {
   font-weight: 400;
   color: $primary-color;
 
- @include mq-tablet{
+  @include mq-tablet {
     font-size: 34px;
   }
+
   &__line {
     display: block;
     width: 75%;
@@ -181,7 +189,7 @@ h6 {
     margin: 0 auto;
     border-radius: 1px;
 
-   @include mq-tablet{
+    @include mq-tablet {
       height: 2.125px;
     }
   }
@@ -190,11 +198,32 @@ h6 {
 .home-info-cards-container {
   @include grid-max-auto-columns(8px, 2, 288px);
 
-  @include mq-desktop{
+  @include mq-desktop {
     @include grid-max-auto-columns(16px, 4, 288px);
 
-    & .info-card:last-child{
+    & .info-card:last-child {
       grid-column: -2;
     }
+  }
+}
+
+
+.add-vehicle-button {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background-color: $light-color;
+  padding: 8px;
+  box-shadow: 0px 1px 4px 0px rgba(234, 172, 255, 0.25);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  &:active {
+    background-color: $secondary-color;
+    color: $light-color;
   }
 }
