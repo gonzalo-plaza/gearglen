@@ -1,37 +1,37 @@
-.sidebar-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 16px;
-    overflow-x: hidden;
-    min-width: 264px;
-    min-height: 56px;
+.sidebar-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px 16px;
+	overflow-x: hidden;
+	min-width: 264px;
+	min-height: 56px;
 }
 
-.sidebar-header-logo{
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.sidebar-header-logo {
+	display: flex;
+	align-items: center;
+	gap: 8px;
 
-    &__text{
-        font-family: 'Goldman'; 
-        color: $secondary-color;
-    }
+	&__text {
+		font-family: 'Goldman';
+		color: $secondary-color;
+	}
 }
 
-.sidebar-header-close{
-    cursor: pointer;
-    display: grid;
-    place-content: center;
-    width: 40px;
-    height: 40px;
+.sidebar-header-close {
+	cursor: pointer;
+	display: grid;
+	place-content: center;
+	width: 40px;
+	height: 40px;
 
-    &__icon{
-        font-size: 24px;
-        color: $secondary-color;
-    }
+	&__icon {
+		font-size: 24px;
+		color: $secondary-color;
+	}
 
-    @media (min-width: 1024px) {
-        display: none;
-    }
+	@media (min-width: 1024px) {
+		display: none;
+	}
 }
