@@ -1,4 +1,4 @@
-import { MdAirlineSeatIndividualSuite, MdClear } from 'react-icons/md';
+import { MdReport, MdClear } from 'react-icons/md';
 
 import { useVehicleModalStore } from '../../../store/vehicleModalStore';
 
@@ -11,21 +11,31 @@ export const AddVehicleModal = () => {
 		register,
 		handleSubmit,
 		formState: { errors },
-		watch,
-		setValue,
 		reset,
-	} = useForm({
-		defaultValues: {
-			nombre: 'Gonza',
-			correo: 'text@text.com',
-		},
-	});
+	} = useForm();
 
 	console.log(errors);
 
-	const handleClick = () => {
+	const handleCloseClick = () => {
 		hideVehicleModal();
 	};
+
+	const handleCancelClick = () => {
+		hideVehicleModal();
+		reset();
+	};
+
+	const getMaxDate = () => {
+		const today = new Date();
+		const day = today.getDate().toString().padStart(2, '0');
+		const month = (today.getMonth() + 1).toString().padStart(2, '0');
+		const year = today.getFullYear();
+
+		return `${year}-${month}-${day}`;
+	};
+
+	const maxDate = getMaxDate();
+
 	return (
 		<section className={`vehicle-modal ${showVehicleModal ? 'is-active' : ''}`}>
 			<div
@@ -36,7 +46,7 @@ export const AddVehicleModal = () => {
 					<span>Añadir vehículo</span>
 					<div
 						className='vehicle-modal-close'
-						onClick={handleClick}
+						onClick={handleCloseClick}
 						role='button'
 						aria-label='Close sidebar'
 					>
@@ -44,109 +54,54 @@ export const AddVehicleModal = () => {
 					</div>
 				</header>
 				<div className='vehicle-modal-card-body'>
-					{/* <form onSubmit={handleSubmit((data) => {
-                        console.log(data);
-                        reset()
-                    })}>
-                        <label htmlFor="nombre">Nombre</label>
-                        <input type="text" {...register('nombre', {
-                            required: {
-                                value: true,
-                                message: 'Nombre es requerido'
-                            },
-                            minLength: {
-                                value: 2,
-                                message: 'Nombre debe tener al menos 2 caracteres'
-                            },
-                            maxLength: {
-                                value: 20,
-                                message: 'Nombre debe tener máximo 20 caracteres'
-                            }
-                        })}/>
-                        {
-                            errors?.nombre && <span>{errors.nombre.message}</span>
-                        }
-                        <label htmlFor="correo">Correo</label>
-                        <input type="email" {...register('email', {
-                            required: {
-                                value: true,
-                                message: 'Correo es requerido'
-                            },
-                            pattern:{
-                                value: /^[a-z0-9._%+-]+@[a-z0-9]+\.[a-z]{2,4}$/,
-                                message: 'Correo no válido '
-                            }
-                        })}/>
-                        <label htmlFor="password">Password</label>
-                        <input type="password" {...register('password', {
-                            required: true
-                        })}/>
-                        <label htmlFor="confirm-password">Confirm password</label>
-                        <input type="password" {...register('confirmPassword', {
-                            required: {
-                                value: true,
-                                message: 'confirmar password es requerido'
-                            },
-                            validate: (value) => {
-                                if(value === watch('password')){
-                                    return true;
-                                }else{
-                                    return 'Las contraseñas no coinciden'
-                                }
-                            }
-                        })}/>
-                        {
-                            errors?.confirmPassword && <span>{errors.confirmPassword.message}</span>
-                        }
-                        <label htmlFor="fecha-fabricacion">Fecha fabricación</label>
-                        <input type="date" {...register('date', {
-                            required:{
-                                value: true,
-                                message: 'Fecha de fabricación es requerida'
-                            },
-                            validate: (value) => {
-                                const fechaFabricacion = new Date(value);
-                                const fechaActual = new Date();
-
-                                const edad = fechaActual.getFullYear() - fechaFabricacion.getFullYear()
-
-                                if(edad >= 18){
-                                    return true
-                                }else{
-                                    return 'Debe ser mayor de edad'
-                                }
-                            }
-                        })} />
-                        {
-                            errors?.date && <span>{errors.date.message}</span>
-                        }
-                        <label htmlFor="pais">País</label>
-                        <select name="pais" id="pais" {...register('pais')}>
-                            <option value="mx">México</option>
-                            <option value="co">Colombia</option>
-                            <option value="ar">Argentina</option>
-                        </select>
-                        <button>Enviar</button>
-                    </form> */}
-					<form id='addVehicleForm' className='add-vehicle-form'>
-						<label htmlFor='vehicleName' className='add-vehicle-form__label'>
-							Nombre del vehículo
-						</label>
-						<input
-							type='text'
-							className='add-vehicle-form__input'
-							placeholder='Introduce un nombre para tu vehículo'
-						/>
+					<form
+						id='addVehicleForm'
+						className='add-vehicle-form'
+						onSubmit={handleSubmit(data => {
+							console.log(data);
+						})}
+					>
+						<div className='add-vehicle-form-item-container'>
+							<label htmlFor='name' className='add-vehicle-form__label'>
+								Nombre del vehículo
+							</label>
+							<input
+								type='text'
+								className={`add-vehicle-form__input ${
+									errors?.name ? 'is-error' : ''
+								}`}
+								placeholder='Introduce un nombre para tu vehículo'
+								{...register('name', {
+									required: {
+										value: true,
+										message: 'Introduce un nombre para tu vehículo',
+									},
+								})}
+							/>
+							{errors?.name && (
+								<p className='add-vehicle-form__error-message'>
+									<MdReport />
+									<span>{errors.name.message}</span>
+								</p>
+							)}
+						</div>
 						<div className='add-vehicle-form-input-group'>
-							<div className='grow-1'>
-								<label htmlFor='vehicle' className='add-vehicle-form__label'>
+							<div className='add-vehicle-form-item-container grow-1'>
+								<label htmlFor='type' className='add-vehicle-form__label'>
 									Vehículo
 								</label>
 								<select
-									name='vehicle'
+									name='type'
 									id='vehicle'
-									className='add-vehicle-form__select'
-									required
+									className={`add-vehicle-form__select ${
+										errors?.type ? 'is-error' : ''
+									}`}
+									{...register('type', {
+										required: {
+											value: true,
+											message: 'Selecciona un tipo de vehículo',
+										},
+									})}
 								>
 									<option value='' disabled selected>
 										Selecciona un tipo de vehículo
@@ -155,34 +110,41 @@ export const AddVehicleModal = () => {
 									<option value='motorcicle'>Moto</option>
 									<option value='truck'>Camión</option>
 								</select>
+								{errors?.type && (
+									<p className='add-vehicle-form__error-message'>
+										<MdReport />
+										<span>{errors.type.message}</span>
+									</p>
+								)}
 							</div>
-							<div className='grow1'>
-								<label
-									htmlFor='vehicleRegistration'
-									className='add-vehicle-form__label'
-								>
-									Matrícula
+							<div className='add-vehicle-form-item-container grow1'>
+								<label htmlFor='kilometers' className='add-vehicle-form__label'>
+									Kilómetros
 								</label>
 								<input
-									type='text'
+									type='number'
 									className='add-vehicle-form__input'
-									placeholder='Introduce la matrícula de tu vehículo'
+									placeholder='Introduce el kilometraje de tu vehículo'
+									{...register('kilometers')}
 								/>
 							</div>
 						</div>
 						<div className='add-vehicle-form-input-group'>
-							<div className='grow-1'>
-								<label
-									htmlFor='vehicleMake'
-									className='add-vehicle-form__label'
-								>
+							<div className='add-vehicle-form-item-container grow-1'>
+								<label htmlFor='brand' className='add-vehicle-form__label'>
 									Marca
 								</label>
 								<select
-									name='vehicleMake'
-									id='vehicleMake'
-									className='add-vehicle-form__select'
-									required
+									id='brand'
+									className={`add-vehicle-form__select ${
+										errors?.brand ? 'is-error' : ''
+									}`}
+									{...register('brand', {
+										required: {
+											value: true,
+											message: 'Selecciona la marca de tu vehículo',
+										},
+									})}
 								>
 									<option value='' disabled selected>
 										Selecciona la marca
@@ -204,49 +166,95 @@ export const AddVehicleModal = () => {
 									<option value='bmw'>BMW</option>
 									<option value='otro'>Otro</option>
 								</select>
+								{errors?.brand && (
+									<p className='add-vehicle-form__error-message'>
+										<MdReport />
+										<span>{errors.brand.message}</span>
+									</p>
+								)}
 							</div>
-							<div className='grow-1'>
-								<label
-									htmlFor='vehicleModel'
-									className='add-vehicle-form__label'
-								>
+							<div className='add-vehicle-form-item-container grow-1'>
+								<label htmlFor='model' className='add-vehicle-form__label'>
 									Modelo
 								</label>
 								<input
 									type='text'
 									className='add-vehicle-form__input'
 									placeholder='Introduce el modelo te tu vehículo'
+									{...register('model')}
 								/>
 							</div>
 						</div>
 						<div className='add-vehicle-form-input-group'>
-							<div className='grow-1'>
-								<label htmlFor='kilometers' className='add-vehicle-form__label'>
-									Kilómetros
-								</label>
-								<input
-									type='number'
-									className='add-vehicle-form__input'
-									placeholder='Introduce el kilometraje de tu vehículo'
-								/>
-							</div>
-							<div>
+							<div className='add-vehicle-form-item-container grow-1'>
 								<label
-									htmlFor='registrationYear'
+									htmlFor='licensePlate'
 									className='add-vehicle-form__label'
 								>
+									Matrícula
+								</label>
+								<input
+									type='text'
+									className={`add-vehicle-form__input ${
+										errors?.licensePlate ? 'is-error' : ''
+									}`}
+									placeholder='Introduce la matrícula de tu vehículo'
+									{...register('licensePlate', {
+										pattern: {
+											value:
+												/^(([A-Z]{1,3}-?\d{1,6})|([A-Z]{1,2}-?\d{4}-?[A-Z]{1,2})|\d{4}[BCDFGHJKLMNPRSTVWXYZ]{3}|[A-Z]\d{4}[A-Z]{3})$/,
+											message: 'Introduce una matrícula correcta (ES)',
+										},
+									})}
+								/>
+								{errors?.licensePlate && (
+									<p className='add-vehicle-form__error-message'>
+										<MdReport />
+										<span>{errors.licensePlate.message}</span>
+									</p>
+								)}
+							</div>
+							<div className='add-vehicle-form-item-container'>
+								<label htmlFor='date' className='add-vehicle-form__label'>
 									Fecha M.
 								</label>
 								<input
 									type='date'
-									className='add-vehicle-form__input is-date'
+									className={`add-vehicle-form__input is-date ${
+										errors?.date ? 'is-error' : ''
+									}`}
 									placeholder='Introduce el año de matriculación'
+									max={maxDate}
+									{...register('date', {
+										validate: value => {
+											if (value) {
+												const today = new Date().getTime();
+												const dateSelected = new Date(value).getTime();
+
+												return (
+													today > dateSelected ||
+													'Introduce una fecha inferior al día de hoy'
+												);
+											}
+
+											return true;
+										},
+									})}
 								/>
+								{errors?.date && (
+									<p className='add-vehicle-form__error-message'>
+										<MdReport />
+										<span>{errors.date.message}</span>
+									</p>
+								)}
 							</div>
 						</div>
 					</form>
 					<footer className='vehicle-modal-card-footer'>
-						<button className='vehicle-modal-card-footer__button'>
+						<button
+							onClick={handleCancelClick}
+							className='vehicle-modal-card-footer__button'
+						>
 							Cancelar
 						</button>
 						<button
