@@ -56,3 +56,9 @@
 		}
 	}
 }
+
+.sidebar-nav-link-container {
+	&.is-blocked {
+		pointer-events: none;
+	}
+}

@@ -9,7 +9,10 @@ function SideBarItem({ Icon, title, blocked, href, text }) {
 		hideSideBar();
 	};
 	return (
-		<li onClick={handleClick}>
+		<li
+			onClick={handleClick}
+			className={`sidebar-nav-link-container ${blocked ? 'is-blocked' : ''}`}
+		>
 			<NavLink
 				to={href}
 				title={title}
