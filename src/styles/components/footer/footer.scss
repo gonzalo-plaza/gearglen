@@ -1,58 +1,58 @@
 .footer {
-    font-family: Goldman;
-    font-size: 10px;
-    color: $light-color;
-    background-color: $primary-color;
-    padding: 8px;
+	font-family: Goldman;
+	font-size: 10px;
+	color: $light-color;
+	background-color: $primary-color;
+	padding: 8px;
 
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
+	display: flex;
+	justify-content: space-between;
+	gap: 8px;
 
-   @include mq-tablet{
-        font-size: 11px;
-    }
+	@include mq-tablet {
+		font-size: 11px;
+	}
 
-    @include mq-desktop{
-        font-size: 13px;
-    }
+	@include mq-desktop {
+		font-size: 13px;
+	}
 }
 
 .footer-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 
-    &.is-left {
-        min-width: 116px;
-    }
+	&.is-left {
+		min-width: 116px;
+	}
 
-    &.is-right {
-        text-align: right;
-        max-width: 210px;
+	&.is-right {
+		text-align: right;
+		max-width: 210px;
 
-       @include mq-tablet{
-            max-width: none;
-        }
-    }
+		@include mq-tablet {
+			max-width: none;
+		}
+	}
 
-    &__text {
-        &.has-icon {
-            display: flex;
-            line-height: 10px;
-            height: 15px;
-            align-items: center;
-            gap: 4px;
+	&__text {
+		&.has-icon {
+			display: flex;
+			line-height: 10px;
+			height: 15px;
+			align-items: center;
+			gap: 4px;
 
-           @include mq-tablet{
-                line-height: 11px;
-                height: 17px;
-            }
+			@include mq-tablet {
+				line-height: 11px;
+				height: 17px;
+			}
 
-            @include mq-desktop{
-                line-height: 13px;
-                height: 19px;
-            }
-        }
-    }
+			@include mq-desktop {
+				line-height: 13px;
+				height: 19px;
+			}
+		}
+	}
 }
