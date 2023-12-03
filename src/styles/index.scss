@@ -215,6 +215,7 @@ h6 {
 .vehicles-container{
 	display: flex;
 	justify-content: center;
+	margin-bottom: 24px;
 }
 
 .add-vehicle-button {
@@ -245,4 +246,78 @@ h6 {
 
 label {
 	display: block;
+}
+
+
+.vehicles-container-article{
+	margin-bottom: 24px;
+	display: flex;
+	justify-content: center;
+	gap: 16px;
+	flex-wrap: wrap;
+}
+
+.vehicle-item{
+	position: relative;
+	background-color: $light-color;
+	border-radius: 8px;
+	padding: 16px;
+	width: 320px;
+	box-shadow: 0px 1px 4px 0px rgba(234, 172, 255, 0.25);
+	
+	&__img{
+		height: 150px;
+	}
+	& header{
+		display: flex;
+		justify-content: center;
+		margin-bottom: 16px;
+	}
+
+	& h3{
+		font-family: 'Goldman';
+		color: $primary-color;
+		text-align: center;
+		margin-bottom: 8px;
+	}
+
+	& ul{
+		list-style: none;
+		padding: 0px;
+		column-count: 2;
+		font-weight: 500;
+	}
+}
+
+.remove-vehicle-button{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	cursor: pointer;
+	display: grid;
+	place-content: center;
+	width: 40px;
+	height: 40px;
+
+	&__icon {
+		color: #757575;
+		font-size: 18px;
+	}
+}
+
+.vehicle-detail{
+	display: flex;
+    align-items: center;
+    gap: 6px;
+	padding: 4px 0px;
+
+	&__icon{
+		color: $primary-color;
+	}
+	
+	&__description{
+		&.no-added{
+			color: #757575
+		}
+	}
 }
