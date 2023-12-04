@@ -2,11 +2,11 @@
 	position: relative;
 	&__ellipse {
 		background-color: $third-color;
-		width: 0.5rem;
-		height: 0.5rem;
+		width: $size-2-rem;
+		height: $size-2-rem;
 		position: absolute;
-		right: 0.25rem;
-		top: 0.25rem;
+		right: $size-1-rem;
+		top: $size-1-rem;
 		border-radius: 50%;
 	}
 
