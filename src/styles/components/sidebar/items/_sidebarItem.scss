@@ -2,12 +2,12 @@
 	display: flex;
 	cursor: pointer;
 	align-items: center;
-	gap: 16px;
-	padding-left: 16px;
-	padding-right: 16px;
+	gap: $size-4-px;
+	padding-left: $size-4-px;
+	padding-right: $size-4-px;
 
-	padding-top: 8px;
-	padding-bottom: 8px;
+	padding-top: $size-2-px;
+	padding-bottom: $size-2-px;
 
 	text-decoration: none;
 

@@ -3,7 +3,7 @@
 	top: 0;
 	background-color: $light-color;
 	z-index: 1;
-	padding: 8px 16px;
+	padding: $size-2-px $size-4-px;
 	box-shadow: 0px 1px 4px -1px rgba(234, 172, 255, 0.39);
 	display: flex;
 	justify-content: space-between;
@@ -12,13 +12,13 @@
 
 .icons-container {
 	display: flex;
-	gap: 8px;
+	gap: $size-2-px;
 }
 
 .icon-item {
 	cursor: pointer;
-	width: 2.5rem;
-	height: 2.5rem;
+	width: $size-10-rem;
+	height: $size-10-rem;
 	display: grid;
 	place-content: center;
 
