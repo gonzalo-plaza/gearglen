@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useVehiclesStore } from '../../../store/vehiclesStore';
 import { useVehicleModalStore } from '../../../store/vehicleModalStore';
 import { MdReport } from 'react-icons/md';
+import { generateVehicleObject } from '../../../helpers/formHelpers';
 
 export const AddVehicleForm = () => {
 	const { hideVehicleModal } = useVehicleModalStore();
@@ -19,30 +20,12 @@ export const AddVehicleForm = () => {
 		},
 	});
 
-	const getVehicleObject = formValues => {
-		const formChecked = {};
-		const vehicleId = vehicles.length;
-		formChecked.id = vehicleId;
-		for (const property in formValues) {
-			if (formValues[property]) {
-				formChecked[property] = {
-					value: formValues[property],
-				};
-			} else {
-				formChecked[property] = {
-					value: 'No añadido',
-					noAdded: true,
-				};
-			}
-		}
-
-		return formChecked;
-	};
-
-	const onSubmit = handleSubmit(data => {
-		const formResult = structuredClone(data);
-		const vehicleOject = getVehicleObject(formResult);
-		addVehicle(vehicleOject);
+	const onSubmit = handleSubmit(formValues => {
+		const vehicleObject = generateVehicleObject({
+			formValues,
+			vehiclesLength: vehicles.length,
+		});
+		addVehicle(vehicleObject);
 		hideVehicleModal();
 		reset();
 	});
