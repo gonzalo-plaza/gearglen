@@ -24,8 +24,8 @@ export const Section = ({ children, title, img, description }) => {
 };
 
 Section.propTypes = {
-	children: PropTypes.element,
+	children: PropTypes.any,
 	title: PropTypes.string,
-	img: PropTypes.img,
-	description: PropTypes.description,
+	img: PropTypes.string,
+	description: PropTypes.string,
 };

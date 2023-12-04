@@ -37,7 +37,7 @@ export const SelectField = ({
 
 SelectField.propTypes = {
 	errors: PropTypes.object.isRequired,
-	register: PropTypes.func.isRequired,
+	register: PropTypes.object.isRequired,
 	labelValue: PropTypes.string.isRequired,
 	selectName: PropTypes.string.isRequired,
 	optionsArray: PropTypes.array.isRequired,

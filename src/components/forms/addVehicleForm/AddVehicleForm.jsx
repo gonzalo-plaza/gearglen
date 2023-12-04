@@ -55,6 +55,7 @@ export const AddVehicleForm = () => {
 					<div className='add-vehicle-form-item-container grow-1'>
 						<InputField
 							labelValue='Nombre del vehículo'
+							type='text'
 							errors={errors}
 							register={register('name', carNameValidation(vehicles))}
 							placeholder='Introduce el nombre de tu vehículo'
@@ -108,6 +109,7 @@ export const AddVehicleForm = () => {
 					<div className='add-vehicle-form-item-container grow-1'>
 						<InputField
 							type='text'
+							name='model'
 							labelValue='Modelo'
 							errors={errors}
 							placeholder='Introduce el modelo'
@@ -129,6 +131,7 @@ export const AddVehicleForm = () => {
 					<div className='add-vehicle-form-item-container'>
 						<InputField
 							type='date'
+							name='date'
 							labelValue='Fecha M.'
 							errors={errors}
 							register={register('date', licenseDateValidation)}
