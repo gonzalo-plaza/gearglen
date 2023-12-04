@@ -3,11 +3,11 @@
 	font-size: 10px;
 	color: $light-color;
 	background-color: $primary-color;
-	padding: 8px;
+	padding: $size-2-px;
 
 	display: flex;
 	justify-content: space-between;
-	gap: 8px;
+	gap: $size-2-px;
 
 	@include mq-tablet {
 		font-size: 11px;
@@ -42,7 +42,7 @@
 			line-height: 10px;
 			height: 15px;
 			align-items: center;
-			gap: 4px;
+			gap: $size-1-px;
 
 			@include mq-tablet {
 				line-height: 11px;
