@@ -1,8 +1,22 @@
 import { useForm } from 'react-hook-form';
 import { useVehiclesStore } from '../../../store/vehiclesStore';
 import { useVehicleModalStore } from '../../../store/vehicleModalStore';
-import { MdReport } from 'react-icons/md';
-import { generateVehicleObject } from '../../../helpers/formHelpers';
+import {
+	generateVehicleObject,
+	getMaxDate,
+} from '../../../helpers/formHelpers';
+import {
+	formDefaultValues,
+	basicSelectValidation,
+	carNameValidation,
+	licensePlateValidation,
+	licenseDateValidation,
+	vehiclesOptionsArray,
+	brandsOptionsArray,
+	fuelOptionsArray,
+} from '../../../constants/formConstants';
+import { InputField } from './fields/InputField';
+import { SelectField } from './fields/SelectField';
 
 export const AddVehicleForm = () => {
 	const { hideVehicleModal } = useVehicleModalStore();
@@ -12,13 +26,7 @@ export const AddVehicleForm = () => {
 		handleSubmit,
 		formState: { errors },
 		reset,
-	} = useForm({
-		defaultValues: {
-			type: 'default',
-			brand: 'default',
-			fuel: 'default',
-		},
-	});
+	} = useForm(formDefaultValues);
 
 	const onSubmit = handleSubmit(formValues => {
 		const vehicleObject = generateVehicleObject({
@@ -30,21 +38,12 @@ export const AddVehicleForm = () => {
 		reset();
 	});
 
-	const getMaxDate = () => {
-		const today = new Date();
-		const day = today.getDate().toString().padStart(2, '0');
-		const month = (today.getMonth() + 1).toString().padStart(2, '0');
-		const year = today.getFullYear();
-
-		return `${year}-${month}-${day}`;
-	};
-
-	const maxDate = getMaxDate();
-
 	const handleCancelClick = () => {
 		hideVehicleModal();
 		reset();
 	};
+
+	const maxDate = getMaxDate();
 	return (
 		<>
 			<form
@@ -54,218 +53,87 @@ export const AddVehicleForm = () => {
 			>
 				<div className='add-vehicle-form-input-group'>
 					<div className='add-vehicle-form-item-container grow-1'>
-						<label htmlFor='name' className='add-vehicle-form__label'>
-							Nombre del vehículo
-						</label>
-						<input
-							type='text'
-							className={`add-vehicle-form__input ${
-								errors?.name ? 'is-error' : ''
-							}`}
-							placeholder='Introduce un nombre para tu vehículo'
-							{...register('name', {
-								required: true,
-								validate: value => {
-									const test = vehicles.find(vehicle => {
-										return vehicle.name?.value === value;
-									});
-
-									if (test) {
-										return 'Ya tienes un vehículo con este nombre';
-									}
-
-									return true;
-								},
-							})}
+						<InputField
+							labelValue='Nombre del vehículo'
+							errors={errors}
+							register={register('name', carNameValidation(vehicles))}
+							placeholder='Introduce el nombre de tu vehículo'
+							name='name'
 						/>
-						{errors?.name?.message && (
-							<p className='add-vehicle-form-error-message'>
-								<MdReport className='add-vehicle-form-error-message__icons' />
-								<span>{errors.name.message}</span>
-							</p>
-						)}
 					</div>
 					<div className='add-vehicle-form-item-container'>
-						<label htmlFor='type' className='add-vehicle-form__label'>
-							Vehículo
-						</label>
-						<select
-							name='type'
-							id='type'
-							className={`add-vehicle-form__select ${
-								errors?.type ? 'is-error' : ''
-							}`}
-							{...register('type', {
-								validate: value => value !== 'default',
-							})}
-						>
-							<option value='default' disabled>
-								Selecciona un tipo de vehículo
-							</option>
-							<option value='car'>Coche</option>
-							<option value='motorbike'>Moto</option>
-							<option value='truck'>Camión</option>
-						</select>
+						<SelectField
+							labelValue='Vehículo'
+							selectName='type'
+							errors={errors}
+							register={register('type', basicSelectValidation)}
+							optionDefaultValue='Selecciona un tipo de vehículo'
+							optionsArray={vehiclesOptionsArray}
+						/>
 					</div>
 				</div>
 				<div className='add-vehicle-form-input-group'>
 					<div className='add-vehicle-form-item-container grow-1'>
-						<label htmlFor='kilometers' className='add-vehicle-form__label'>
-							Kilómetros
-						</label>
-						<input
+						<InputField
 							type='number'
-							className='add-vehicle-form__input'
-							placeholder='Introduce el kilometraje de tu vehículo'
-							{...register('kilometers')}
+							labelValue='Kilómetros'
+							errors={errors}
+							placeholder='Introduce los kilómetros'
+							register={register('kilometers')}
+							name='kilometers'
 						/>
 					</div>
 					<div className='add-vehicle-form-item-container'>
-						<label htmlFor='fuel' className='add-vehicle-form__label'>
-							Combustible
-						</label>
-						<select
-							name='fuel'
-							id='fuel'
-							className={`add-vehicle-form__select ${
-								errors?.type ? 'is-error' : ''
-							}`}
-							{...register('fuel', {
-								validate: value => value !== 'default',
-							})}
-						>
-							<option value='default' disabled>
-								Selecciona el combustible
-							</option>
-							<option value='Diesel'>Diesel</option>
-							<option value='Gasoline'>Gasolina</option>
-						</select>
+						<SelectField
+							labelValue='Combustible'
+							selectName='fuel'
+							errors={errors}
+							register={register('fuel', basicSelectValidation)}
+							optionDefaultValue='Selecciona el combustible'
+							optionsArray={fuelOptionsArray}
+						/>
 					</div>
 				</div>
 				<div className='add-vehicle-form-input-group'>
 					<div className='add-vehicle-form-item-container'>
-						<label htmlFor='brand' className='add-vehicle-form__label'>
-							Marca
-						</label>
-						<select
-							id='brand'
-							className={`add-vehicle-form__select ${
-								errors?.brand ? 'is-error' : ''
-							}`}
-							{...register('brand', {
-								validate: value => value !== 'default',
-							})}
-						>
-							<option value='default' disabled>
-								Selecciona la marca
-							</option>
-							<option value='Aprilia'>Aprilia</option>
-							<option value='Audi'>Audi</option>
-							<option value='BMW'>BMW</option>
-							<option value='Citroën'>Citroën</option>
-							<option value='Dacia'>Dacia</option>
-							<option value='DAF'>DAF</option>
-							<option value='Ducati'>Ducati</option>
-							<option value='Fiat'>Fiat</option>
-							<option value='Ford'>Ford</option>
-							<option value='Honda'>Honda</option>
-							<option value='Hyundai'>Hyundai</option>
-							<option value='Iveco'>Iveco</option>
-							<option value='Kia'>Kia</option>
-							<option value='KTM'>KTM</option>
-							<option value='KYMCO'>KYMCO</option>
-							<option value='Mercedes'>Mercedes</option>
-							<option value='Mitsubishi'>Mitsubishi</option>
-							<option value='Opel'>Opel</option>
-							<option value='Peugeot'>Peugeot</option>
-							<option value='Piaggio'>Piaggio</option>
-							<option value='Renault'>Renault</option>
-							<option value='Scania'>Scania</option>
-							<option value='Seat'>Seat</option>
-							<option value='Skoda'>Skoda</option>
-							<option value='Suzuki'>Suzuki</option>
-							<option value='SYM'>SYM</option>
-							<option value='Tesla'>Tesla</option>
-							<option value='Toyota'>Toyota</option>
-							<option value='Vespa'>Vespa</option>
-							<option value='Volkswagen'>Volkswagen</option>
-							<option value='Volvo'>Volvo</option>
-							<option value='Wottan'>Wottan</option>
-							<option value='Yamaha'>Yamaha</option>
-							<option value='Otro'>Otro</option>
-						</select>
+						<SelectField
+							labelValue='Marca'
+							selectName='brand'
+							errors={errors}
+							register={register('brand', basicSelectValidation)}
+							optionDefaultValue='Selecciona la marca'
+							optionsArray={brandsOptionsArray}
+						/>
 					</div>
 					<div className='add-vehicle-form-item-container grow-1'>
-						<label htmlFor='model' className='add-vehicle-form__label'>
-							Modelo
-						</label>
-						<input
+						<InputField
 							type='text'
-							className='add-vehicle-form__input'
-							placeholder='Introduce el modelo te tu vehículo'
-							{...register('model')}
+							labelValue='Modelo'
+							errors={errors}
+							placeholder='Introduce el modelo'
+							register={register('model')}
 						/>
 					</div>
 				</div>
 				<div className='add-vehicle-form-input-group'>
 					<div className='add-vehicle-form-item-container grow-1'>
-						<label htmlFor='licensePlate' className='add-vehicle-form__label'>
-							Matrícula
-						</label>
-						<input
+						<InputField
 							type='text'
-							className={`add-vehicle-form__input ${
-								errors?.licensePlate ? 'is-error' : ''
-							}`}
-							placeholder='Introduce la matrícula de tu vehículo'
-							{...register('licensePlate', {
-								pattern: {
-									value:
-										/^(([A-Z]{1,3}-?\d{1,6})|([A-Z]{1,2}-?\d{4}-?[A-Z]{1,2})|\d{4}[BCDFGHJKLMNPRSTVWXYZ]{3}|[A-Z]\d{4}[A-Z]{3})$/,
-									message: 'Introduce una matrícula correcta (ES)',
-								},
-							})}
+							labelValue='Matrícula'
+							name='licensePlate'
+							errors={errors}
+							placeholder='Introduce la matrícula'
+							register={register('licensePlate', licensePlateValidation)}
 						/>
-						{errors?.licensePlate && (
-							<p className='add-vehicle-form-error-message'>
-								<MdReport className='add-vehicle-form-error-message__icon' />
-								<span>{errors.licensePlate.message}</span>
-							</p>
-						)}
 					</div>
 					<div className='add-vehicle-form-item-container'>
-						<label htmlFor='date' className='add-vehicle-form__label'>
-							Fecha M.
-						</label>
-						<input
+						<InputField
 							type='date'
-							className={`add-vehicle-form__input is-date ${
-								errors?.date ? 'is-error' : ''
-							}`}
-							placeholder='Introduce el año de matriculación'
+							labelValue='Fecha M.'
+							errors={errors}
+							register={register('date', licenseDateValidation)}
 							max={maxDate}
-							{...register('date', {
-								validate: value => {
-									if (value) {
-										const today = new Date().getTime();
-										const dateSelected = new Date(value).getTime();
-
-										return (
-											today > dateSelected ||
-											'Introduce una fecha inferior al día de hoy'
-										);
-									}
-
-									return true;
-								},
-							})}
 						/>
-						{errors?.date && (
-							<p className='add-vehicle-form-error-message'>
-								<MdReport className='add-vehicle-form-error-message__icon' />
-								<span>{errors.date.message}</span>
-							</p>
-						)}
 					</div>
 				</div>
 			</form>
