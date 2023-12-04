@@ -36,9 +36,9 @@ function SideBarItem({ Icon, title, blocked, href, text }) {
 }
 
 SideBarItem.propTypes = {
-	Icon: PropTypes.element,
+	Icon: PropTypes.func,
 	title: PropTypes.string.isRequired,
-	blocked: PropTypes.bool,
+	blocked: PropTypes.string,
 	href: PropTypes.string,
 	text: PropTypes.string.isRequired,
 };

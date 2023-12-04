@@ -33,11 +33,11 @@ export const InputField = ({
 };
 
 InputField.propTypes = {
-	max: PropTypes.string.isRequired,
+	max: PropTypes.string,
 	name: PropTypes.string.isRequired,
 	type: PropTypes.string.isRequired,
 	errors: PropTypes.object.isRequired,
-	register: PropTypes.func.isRequired,
+	register: PropTypes.object.isRequired,
 	labelValue: PropTypes.string.isRequired,
-	placeholder: PropTypes.string.isRequired,
+	placeholder: PropTypes.string,
 };

@@ -11,6 +11,6 @@ export const FooterSectionText = ({ Icon, text }) => {
 };
 
 FooterSectionText.propTypes = {
-	Icon: PropTypes.element,
+	Icon: PropTypes.func,
 	text: PropTypes.string.isRequired,
 };
