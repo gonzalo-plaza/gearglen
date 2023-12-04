@@ -15,14 +15,34 @@ export const AddVehicleForm = () => {
 		defaultValues: {
 			type: 'default',
 			brand: 'default',
+			fuel: 'default',
 		},
 	});
 
+	const getVehicleObject = formValues => {
+		const formChecked = {};
+		const vehicleId = vehicles.length;
+		formChecked.id = vehicleId;
+		for (const property in formValues) {
+			if (formValues[property]) {
+				formChecked[property] = {
+					value: formValues[property],
+				};
+			} else {
+				formChecked[property] = {
+					value: 'No añadido',
+					noAdded: true,
+				};
+			}
+		}
+
+		return formChecked;
+	};
+
 	const onSubmit = handleSubmit(data => {
 		const formResult = structuredClone(data);
-		const vehicleId = vehicles.length;
-		formResult.id = vehicleId;
-		addVehicle(formResult);
+		const vehicleOject = getVehicleObject(formResult);
+		addVehicle(vehicleOject);
 		hideVehicleModal();
 		reset();
 	});
@@ -49,39 +69,39 @@ export const AddVehicleForm = () => {
 				className='add-vehicle-form'
 				onSubmit={onSubmit}
 			>
-				<div className='add-vehicle-form-item-container'>
-					<label htmlFor='name' className='add-vehicle-form__label'>
-						Nombre del vehículo
-					</label>
-					<input
-						type='text'
-						className={`add-vehicle-form__input ${
-							errors?.name ? 'is-error' : ''
-						}`}
-						placeholder='Introduce un nombre para tu vehículo'
-						{...register('name', {
-							required: true,
-							validate: value => {
-								const test = vehicles.find(vehicle => {
-									return vehicle.name === value;
-								});
-
-								if (test) {
-									return 'Ya tienes un vehículo con este nombre';
-								}
-
-								return true;
-							},
-						})}
-					/>
-					{errors?.name?.message && (
-						<p className='add-vehicle-form-error-message'>
-							<MdReport className='add-vehicle-form-error-message__icons' />
-							<span>{errors.name.message}</span>
-						</p>
-					)}
-				</div>
 				<div className='add-vehicle-form-input-group'>
+					<div className='add-vehicle-form-item-container grow-1'>
+						<label htmlFor='name' className='add-vehicle-form__label'>
+							Nombre del vehículo
+						</label>
+						<input
+							type='text'
+							className={`add-vehicle-form__input ${
+								errors?.name ? 'is-error' : ''
+							}`}
+							placeholder='Introduce un nombre para tu vehículo'
+							{...register('name', {
+								required: true,
+								validate: value => {
+									const test = vehicles.find(vehicle => {
+										return vehicle.name?.value === value;
+									});
+
+									if (test) {
+										return 'Ya tienes un vehículo con este nombre';
+									}
+
+									return true;
+								},
+							})}
+						/>
+						{errors?.name?.message && (
+							<p className='add-vehicle-form-error-message'>
+								<MdReport className='add-vehicle-form-error-message__icons' />
+								<span>{errors.name.message}</span>
+							</p>
+						)}
+					</div>
 					<div className='add-vehicle-form-item-container'>
 						<label htmlFor='type' className='add-vehicle-form__label'>
 							Vehículo
@@ -100,10 +120,12 @@ export const AddVehicleForm = () => {
 								Selecciona un tipo de vehículo
 							</option>
 							<option value='car'>Coche</option>
-							<option value='motorcicle'>Moto</option>
+							<option value='motorbike'>Moto</option>
 							<option value='truck'>Camión</option>
 						</select>
 					</div>
+				</div>
+				<div className='add-vehicle-form-input-group'>
 					<div className='add-vehicle-form-item-container grow-1'>
 						<label htmlFor='kilometers' className='add-vehicle-form__label'>
 							Kilómetros
@@ -114,6 +136,27 @@ export const AddVehicleForm = () => {
 							placeholder='Introduce el kilometraje de tu vehículo'
 							{...register('kilometers')}
 						/>
+					</div>
+					<div className='add-vehicle-form-item-container'>
+						<label htmlFor='fuel' className='add-vehicle-form__label'>
+							Combustible
+						</label>
+						<select
+							name='fuel'
+							id='fuel'
+							className={`add-vehicle-form__select ${
+								errors?.type ? 'is-error' : ''
+							}`}
+							{...register('fuel', {
+								validate: value => value !== 'default',
+							})}
+						>
+							<option value='default' disabled>
+								Selecciona el combustible
+							</option>
+							<option value='Diesel'>Diesel</option>
+							<option value='Gasoline'>Gasolina</option>
+						</select>
 					</div>
 				</div>
 				<div className='add-vehicle-form-input-group'>
@@ -133,22 +176,22 @@ export const AddVehicleForm = () => {
 							<option value='default' disabled>
 								Selecciona la marca
 							</option>
-							<option value='toyota'>Toyota</option>
-							<option value='seat'>Seat</option>
-							<option value='peugeot'>Peugeot</option>
-							<option value='kia'>Kia</option>
-							<option value='volkswagen'>Volkswagen</option>
-							<option value='hyundai'>Hyundai</option>
-							<option value='renault'>Renault</option>
-							<option value='dacia'>Dacia</option>
-							<option value='citroën'>Citroën</option>
-							<option value='mercedes'>Mercedes</option>
-							<option value='audi'>Audi</option>
-							<option value='ford'>Ford</option>
-							<option value='opel'>Opel</option>
-							<option value='skoda'>Skoda</option>
-							<option value='bmw'>BMW</option>
-							<option value='otro'>Otro</option>
+							<option value='Toyota'>Toyota</option>
+							<option value='Seat'>Seat</option>
+							<option value='Peugeot'>Peugeot</option>
+							<option value='Kia'>Kia</option>
+							<option value='Volkswagen'>Volkswagen</option>
+							<option value='Hyundai'>Hyundai</option>
+							<option value='Renault'>Renault</option>
+							<option value='Dacia'>Dacia</option>
+							<option value='Citroën'>Citroën</option>
+							<option value='Mercedes'>Mercedes</option>
+							<option value='Audi'>Audi</option>
+							<option value='Ford'>Ford</option>
+							<option value='Opel'>Opel</option>
+							<option value='Skoda'>Skoda</option>
+							<option value='BMW'>BMW</option>
+							<option value='Otro'>Otro</option>
 						</select>
 					</div>
 					<div className='add-vehicle-form-item-container grow-1'>
