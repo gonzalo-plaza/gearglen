@@ -2,7 +2,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 8px 16px;
+	padding: $size-2-px $size-4-px;
 	overflow-x: hidden;
 	min-width: 264px;
 	min-height: 56px;
@@ -11,7 +11,7 @@
 .sidebar-header-logo {
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	gap: $size-2-px;
 
 	&__text {
 		font-family: 'Goldman';
@@ -23,8 +23,8 @@
 	cursor: pointer;
 	display: grid;
 	place-content: center;
-	width: 40px;
-	height: 40px;
+	width: $size-10-px;
+	height: $size-10-px;
 
 	&__icon {
 		font-size: 24px;
