@@ -46,7 +46,7 @@ export const Vehicles = () => {
 										/>
 										<div
 											className='remove-vehicle-button'
-											onClick={handleRemove(vehicle.id)}
+											onClick={handleRemove(vehicle.id.value)}
 										>
 											<MdDelete className='remove-vehicle-button__icon' />
 										</div>

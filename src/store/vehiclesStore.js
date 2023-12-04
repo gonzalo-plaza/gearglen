@@ -15,7 +15,7 @@ export const useVehiclesStore = create(
 				const { vehicles } = get();
 				const actualVehicles = structuredClone(vehicles);
 				const vehiclesCleaned = actualVehicles.filter(vehicle => {
-					return vehicle.id !== vehicleId;
+					return vehicle.id.value !== vehicleId;
 				});
 
 				set({ vehicles: vehiclesCleaned });
