@@ -176,21 +176,39 @@ export const AddVehicleForm = () => {
 							<option value='default' disabled>
 								Selecciona la marca
 							</option>
-							<option value='Toyota'>Toyota</option>
-							<option value='Seat'>Seat</option>
-							<option value='Peugeot'>Peugeot</option>
-							<option value='Kia'>Kia</option>
-							<option value='Volkswagen'>Volkswagen</option>
-							<option value='Hyundai'>Hyundai</option>
-							<option value='Renault'>Renault</option>
-							<option value='Dacia'>Dacia</option>
-							<option value='Citroën'>Citroën</option>
-							<option value='Mercedes'>Mercedes</option>
+							<option value='Aprilia'>Aprilia</option>
 							<option value='Audi'>Audi</option>
-							<option value='Ford'>Ford</option>
-							<option value='Opel'>Opel</option>
-							<option value='Skoda'>Skoda</option>
 							<option value='BMW'>BMW</option>
+							<option value='Citroën'>Citroën</option>
+							<option value='Dacia'>Dacia</option>
+							<option value='DAF'>DAF</option>
+							<option value='Ducati'>Ducati</option>
+							<option value='Fiat'>Fiat</option>
+							<option value='Ford'>Ford</option>
+							<option value='Honda'>Honda</option>
+							<option value='Hyundai'>Hyundai</option>
+							<option value='Iveco'>Iveco</option>
+							<option value='Kia'>Kia</option>
+							<option value='KTM'>KTM</option>
+							<option value='KYMCO'>KYMCO</option>
+							<option value='Mercedes'>Mercedes</option>
+							<option value='Mitsubishi'>Mitsubishi</option>
+							<option value='Opel'>Opel</option>
+							<option value='Peugeot'>Peugeot</option>
+							<option value='Piaggio'>Piaggio</option>
+							<option value='Renault'>Renault</option>
+							<option value='Scania'>Scania</option>
+							<option value='Seat'>Seat</option>
+							<option value='Skoda'>Skoda</option>
+							<option value='Suzuki'>Suzuki</option>
+							<option value='SYM'>SYM</option>
+							<option value='Tesla'>Tesla</option>
+							<option value='Toyota'>Toyota</option>
+							<option value='Vespa'>Vespa</option>
+							<option value='Volkswagen'>Volkswagen</option>
+							<option value='Volvo'>Volvo</option>
+							<option value='Wottan'>Wottan</option>
+							<option value='Yamaha'>Yamaha</option>
 							<option value='Otro'>Otro</option>
 						</select>
 					</div>
