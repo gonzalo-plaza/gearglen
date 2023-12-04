@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { MdLock } from 'react-icons/md';
+import PropTypes from 'prop-types';
 
 import { useSidebarStore } from '../../../store/sidebarStore';
 
@@ -33,5 +34,13 @@ function SideBarItem({ Icon, title, blocked, href, text }) {
 		</li>
 	);
 }
+
+SideBarItem.propTypes = {
+	Icon: PropTypes.element,
+	title: PropTypes.string.isRequired,
+	blocked: PropTypes.bool,
+	href: PropTypes.string,
+	text: PropTypes.string.isRequired,
+};
 
 export default SideBarItem;

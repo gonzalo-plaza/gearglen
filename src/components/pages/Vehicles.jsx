@@ -38,7 +38,7 @@ export const Vehicles = () => {
 					{vehicles &&
 						vehicles.map(vehicle => {
 							return (
-								<article key={vehicle.id} className='vehicle-item'>
+								<article key={vehicle.id.value} className='vehicle-item'>
 									<header>
 										<img
 											className='vehicle-item__img'

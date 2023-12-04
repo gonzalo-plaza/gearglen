@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const Section = ({ children, title, img, description }) => {
 	const hasDescriptionClass = description
 		? 'has-description'
@@ -19,4 +21,11 @@ export const Section = ({ children, title, img, description }) => {
 			{children}
 		</section>
 	);
+};
+
+Section.propTypes = {
+	children: PropTypes.element,
+	title: PropTypes.string,
+	img: PropTypes.img,
+	description: PropTypes.description,
 };

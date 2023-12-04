@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const InfoCard = ({ src, desktopSrc, alt, title, description }) => {
 	return (
 		<article className='info-card'>
@@ -11,4 +13,12 @@ export const InfoCard = ({ src, desktopSrc, alt, title, description }) => {
 			</div>
 		</article>
 	);
+};
+
+InfoCard.propTypes = {
+	src: PropTypes.string.isRequired,
+	desktopSrc: PropTypes.string.isRequired,
+	alt: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+	description: PropTypes.string.isRequired,
 };

@@ -212,7 +212,7 @@ h6 {
 	}
 }
 
-.vehicles-container{
+.vehicles-container {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 24px;
@@ -237,7 +237,7 @@ h6 {
 		box-shadow: inset 0px 1px 4px 0px rgba(234, 172, 255, 0.25);
 	}
 
-	@include mq-tablet{
+	@include mq-tablet {
 		width: 320px;
 		height: 50px;
 		font-size: 18px;
@@ -248,8 +248,7 @@ label {
 	display: block;
 }
 
-
-.vehicles-container-article{
+.vehicles-container-article {
 	margin-bottom: 24px;
 	display: flex;
 	justify-content: center;
@@ -257,31 +256,31 @@ label {
 	flex-wrap: wrap;
 }
 
-.vehicle-item{
+.vehicle-item {
 	position: relative;
 	background-color: $light-color;
 	border-radius: 8px;
 	padding: 16px;
 	width: 320px;
 	box-shadow: 0px 1px 4px 0px rgba(234, 172, 255, 0.25);
-	
-	&__img{
+
+	&__img {
 		height: 150px;
 	}
-	& header{
+	& header {
 		display: flex;
 		justify-content: center;
 		margin-bottom: 16px;
 	}
 
-	& h3{
+	& h3 {
 		font-family: 'Goldman';
 		color: $primary-color;
 		text-align: center;
 		margin-bottom: 8px;
 	}
 
-	& ul{
+	& ul {
 		list-style: none;
 		padding: 0px;
 		column-count: 2;
@@ -289,7 +288,7 @@ label {
 	}
 }
 
-.remove-vehicle-button{
+.remove-vehicle-button {
 	position: absolute;
 	top: 5px;
 	right: 5px;
@@ -305,19 +304,19 @@ label {
 	}
 }
 
-.vehicle-detail{
+.vehicle-detail {
 	display: flex;
-    align-items: center;
-    gap: 6px;
+	align-items: center;
+	gap: 6px;
 	padding: 4px 0px;
 
-	&__icon{
+	&__icon {
 		color: $primary-color;
 	}
-	
-	&__description{
-		&.no-added{
-			color: #757575
+
+	&__description {
+		&.no-added {
+			color: #757575;
 		}
 	}
 }
