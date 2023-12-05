@@ -13,6 +13,8 @@
 @import './components/sidebar/user/sidebarUser';
 @import './components/infoCard/infoCard.scss';
 @import './components/footer/footer.scss';
+@import './components/section/section.scss';
+@import './components/homeInfoCards/homeInfoCards.scss';
 
 /*
   1. Use a more-intuitive box-sizing model.
@@ -116,106 +118,17 @@ h6 {
 .main {
 	min-height: unquote('calc(100vh - 112px)');
 	background-color: $extra-color;
-	padding: 16px;
+	padding: $size-4-px;
 }
 
 .scroll-block {
 	overflow: hidden;
 }
 
-.section {
-	margin-bottom: 24px;
-	max-width: 2000px;
-	margin: 0px auto 24px auto;
-}
-
-.section-header {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.section-description {
-	&.has-description {
-		@include mq-tablet {
-			display: grid;
-			grid-template-columns: 55% 1fr;
-			align-items: center;
-		}
-	}
-
-	&.has-no-description {
-		@media (min-width: 1024px) {
-			display: grid;
-			place-items: center;
-
-			.section-description__img {
-				max-width: 65%;
-			}
-		}
-	}
-
-	&__img {
-		margin-top: 24px;
-		margin-bottom: 32px;
-	}
-
-	&__text {
-		font-weight: 500;
-		line-height: normal;
-		text-align: center;
-
-		@include mq-tablet {
-			font-size: $font-size-lg;
-		}
-
-		@include mq-desktop {
-			font-size: $font-size-xl;
-		}
-	}
-}
-
-.section-header-title {
-	font-family: Goldman;
-	font-size: $font-size-2xl;
-	text-align: center;
-	font-weight: 400;
-	color: $primary-color;
-
-	@include mq-tablet {
-		font-size: 2.125rem;
-	}
-
-	&__line {
-		display: block;
-		width: 75%;
-		height: 1.5px;
-		background-color: $secondary-color;
-		margin: 0 auto;
-		border-radius: 1px;
-
-		@include mq-tablet {
-			height: 2.125px;
-		}
-	}
-}
-
-.home-info-cards-container {
-	@include grid-max-auto-columns(8px, 2, 288px);
-
-	@include mq-desktop {
-		@include grid-max-auto-columns(16px, 4, 288px);
-
-		& .info-card:last-child {
-			grid-column: -2;
-		}
-	}
-}
-
-.vehicles-container {
+.add-vehicle-button-container {
 	display: flex;
 	justify-content: center;
-	margin-bottom: 24px;
+	margin-bottom: $size-6-px;
 }
 
 .add-vehicle-button {
@@ -225,13 +138,13 @@ h6 {
 	border: none;
 	border-radius: 8px;
 	background-color: $light-color;
-	padding: 8px;
+	padding: $size-2-px;
 	box-shadow: 0px 1px 4px 0px rgba(234, 172, 255, 0.25);
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 8px;
+	gap: $size-2-px;
 
 	&:active {
 		box-shadow: inset 0px 1px 4px 0px rgba(234, 172, 255, 0.25);
@@ -248,11 +161,11 @@ label {
 	display: block;
 }
 
-.vehicles-container-article {
-	margin-bottom: 24px;
+.vehicles-container {
+	margin-bottom: $size-6-px;
 	display: flex;
 	justify-content: center;
-	gap: 16px;
+	gap: $size-4-px;
 	flex-wrap: wrap;
 }
 
@@ -260,32 +173,32 @@ label {
 	position: relative;
 	background-color: $light-color;
 	border-radius: 8px;
-	padding: 16px;
+	padding: $size-4-px;
 	width: 320px;
 	box-shadow: 0px 1px 4px 0px rgba(234, 172, 255, 0.25);
 
 	&__img {
 		height: 150px;
 	}
-	& header {
+	&__header {
 		display: flex;
 		justify-content: center;
-		margin-bottom: 16px;
+		margin-bottom: $size-4-px;
 	}
 
-	& h3 {
+	&__title {
 		font-family: 'Goldman';
 		color: $primary-color;
 		text-align: center;
-		margin-bottom: 8px;
+		margin-bottom: $size-2-px;
 	}
+}
 
-	& ul {
-		list-style: none;
-		padding: 0px;
+.vehicle-detail-list{
+	list-style: none;
+		padding: $size-0-px;
 		column-count: 2;
 		font-weight: 500;
-	}
 }
 
 .remove-vehicle-button {
@@ -295,12 +208,14 @@ label {
 	cursor: pointer;
 	display: grid;
 	place-content: center;
-	width: 40px;
-	height: 40px;
+	width: $size-10-px;
+	height: $size-10-px;
+	border: none;
+	background: none;
 
 	&__icon {
 		color: #757575;
-		font-size: 18px;
+		font-size: 1.125rem;
 	}
 }
 
@@ -308,7 +223,7 @@ label {
 	display: flex;
 	align-items: center;
 	gap: 6px;
-	padding: 4px 0px;
+	padding: $size-1-px $size-0-px;
 
 	&__icon {
 		color: $primary-color;
