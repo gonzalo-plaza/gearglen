@@ -5,13 +5,15 @@ export const Home = () => {
 		<>
 			<Section
 				title='Tu Vehículo en Forma'
-				img='./images/vehicles-collection.png'
+				mobileImg='./images/vehicles-collection-600.webp'
+				img='./images/vehicles-collection.webp'
 			>
 				<HomeInfoCards />
 			</Section>
 			<Section
 				title='Mantén tu Vehículo Siempre Listo'
-				img='./images/car-maintenance.png'
+				mobileImg='./images/car-maintenance-700.webp'
+				img='./images/car-maintenance.webp'
 				description='Disfruta de la comodidad de tener tu vehículo en perfecto estado con GearGlen. Gestiona el mantenimiento y las reparaciones con nuestro sistema completo que garantiza la eficiencia y seguridad de cada viaje.'
 			></Section>
 		</>

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const Section = ({ children, title, img, description }) => {
+export const Section = ({ children, title, img, mobileImg, description }) => {
 	const hasDescriptionClass = description
 		? 'has-description'
 		: 'has-no-description';
@@ -13,7 +13,10 @@ export const Section = ({ children, title, img, description }) => {
 				</h1>
 			</header>
 			<div className={`section-description ${hasDescriptionClass}`}>
-				<img className='section-description__img' src={img} />
+				<picture className='section-description__img'>
+					<source srcSet={img} media='(min-width: 1024px)' />
+					<img src={mobileImg} alt={img} />
+				</picture>
 				{description && (
 					<p className='section-description__text'>{description}</p>
 				)}
@@ -27,5 +30,6 @@ Section.propTypes = {
 	children: PropTypes.any,
 	title: PropTypes.string,
 	img: PropTypes.string,
+	mobileImg: PropTypes.string,
 	description: PropTypes.string,
 };
