@@ -28,32 +28,34 @@ export const Vehicles = () => {
 	return (
 		<>
 			<Section title='Mis Vehículos' img='./images/garaje-vehicles.png'>
-				<section className='vehicles-container'>
+				<section className='add-vehicle-button-container'>
 					<button className='add-vehicle-button' onClick={handleClick}>
 						<MdAddCircleOutline className='add-vehicle-button__icon' />
 						<span className='add-vehicle-button__text'>Añadir vehículo</span>
 					</button>
 				</section>
-				<section className='vehicles-container-article'>
+				<section className='vehicles-container'>
 					{vehicles &&
 						vehicles.map(vehicle => {
 							return (
 								<article key={vehicle.id.value} className='vehicle-item'>
-									<header>
+									<header className='vehicle-item__header'>
 										<img
 											className='vehicle-item__img'
 											src={`./images/vehicle-${vehicle.type.value}.png`}
 										/>
-										<div
+										<button
 											className='remove-vehicle-button'
 											onClick={handleRemove(vehicle.id.value)}
 										>
 											<MdDelete className='remove-vehicle-button__icon' />
-										</div>
+										</button>
 									</header>
 									<div>
-										<h3>{vehicle.name.value}</h3>
-										<ul>
+										<h3 className='vehicle-item__title'>
+											{vehicle.name.value}
+										</h3>
+										<ul className='vehicle-detail-list'>
 											<li className='vehicle-detail'>
 												<MdCopyright className='vehicle-detail__icon' />
 												<span
