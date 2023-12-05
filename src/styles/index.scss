@@ -124,18 +124,6 @@ h6 {
 	overflow: hidden;
 }
 
-.home-info-cards-container {
-	@include grid-max-auto-columns(8px, 2, 288px);
-
-	@include mq-desktop {
-		@include grid-max-auto-columns(16px, 4, 288px);
-
-		& .info-card:last-child {
-			grid-column: -2;
-		}
-	}
-}
-
 .vehicles-container {
 	display: flex;
 	justify-content: center;

@@ -1,0 +1,11 @@
+.home-info-cards-container {
+	@include grid-max-auto-columns($size-2-px, 2, 288px);
+
+	@include mq-desktop {
+		@include grid-max-auto-columns($size-4-px, 4, 288px);
+
+		& .info-card:last-child {
+			grid-column: -2;
+		}
+	}
+}
