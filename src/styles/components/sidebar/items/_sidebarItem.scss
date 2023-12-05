@@ -51,8 +51,15 @@
 	&.active {
 		background-color: $secondary-color;
 
-		& .sidebar-nav-link__icon {
-			color: #fff;
+		& .sidebar-nav-link{
+			&__icon {
+				color: $primary-color;
+			}
+
+			&__text{
+				color: $primary-color;
+				font-weight: 600;
+			}
 		}
 	}
 }
