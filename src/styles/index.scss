@@ -166,24 +166,24 @@ h6 {
 		text-align: center;
 
 		@include mq-tablet {
-			font-size: 18px;
+			font-size: $font-size-lg;
 		}
 
 		@include mq-desktop {
-			font-size: 20px;
+			font-size: $font-size-xl;
 		}
 	}
 }
 
 .section-header-title {
 	font-family: Goldman;
-	font-size: 24px;
+	font-size: $font-size-2xl;
 	text-align: center;
 	font-weight: 400;
 	color: $primary-color;
 
 	@include mq-tablet {
-		font-size: 34px;
+		font-size: 2.125rem;
 	}
 
 	&__line {
@@ -240,7 +240,7 @@ h6 {
 	@include mq-tablet {
 		width: 320px;
 		height: 50px;
-		font-size: 18px;
+		font-size: $font-size-lg;
 	}
 }
 
