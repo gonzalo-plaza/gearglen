@@ -61,7 +61,7 @@
 	box-shadow: 0px 1px 4px -1px rgba(234, 172, 255, 0.39);
 
 	@include mq-tablet {
-		font-size: 18px;
+		font-size: $font-size-lg;
 	}
 }
 
@@ -84,16 +84,16 @@
 	height: $size-10-px;
 
 	&__icon {
-		font-size: $size-7-px;
+		font-size: 1.75rem;
 	}
 }
 
 .add-vehicle-form {
-	font-size: 14px;
+	font-size: $font-size-sm;
 	color: #333;
 
 	@include mq-tablet {
-		font-size: 16px;
+		font-size: $font-size-base;
 	}
 
 	&__select {
