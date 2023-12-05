@@ -1,28 +1,17 @@
 import { Section } from '../section/Section';
-import {
-	MdAddCircleOutline,
-	MdCopyright,
-	MdExplore,
-	MdLocalGasStation,
-	MdMenuBook,
-	MdCalendarMonth,
-	MdPin,
-	MdDelete,
-} from 'react-icons/md';
+import { MdAddCircleOutline } from 'react-icons/md';
 import { useVehicleModalStore } from '../../store/vehicleModalStore';
 import { AddVehicleModal } from '../modals/addVehicleModal/AddVehicleModal';
+import { VehicleCard } from '../vehicleCard/VehicleCard';
+
 import { useVehiclesStore } from '../../store/vehiclesStore';
 
 export const Vehicles = () => {
 	const { launchVehicleModal } = useVehicleModalStore();
-	const { vehicles, removeVehicle } = useVehiclesStore();
+	const { vehicles } = useVehiclesStore();
 
 	const handleClick = () => {
 		launchVehicleModal();
-	};
-
-	const handleRemove = id => () => {
-		removeVehicle(id);
 	};
 
 	return (
@@ -36,91 +25,9 @@ export const Vehicles = () => {
 				</section>
 				<section className='vehicles-container'>
 					{vehicles &&
-						vehicles.map(vehicle => {
-							return (
-								<article key={vehicle.id.value} className='vehicle-item'>
-									<header className='vehicle-item__header'>
-										<img
-											className='vehicle-item__img'
-											src={`./images/vehicle-${vehicle.type.value}.png`}
-										/>
-										<button
-											className='remove-vehicle-button'
-											onClick={handleRemove(vehicle.id.value)}
-										>
-											<MdDelete className='remove-vehicle-button__icon' />
-										</button>
-									</header>
-									<div>
-										<h3 className='vehicle-item__title'>
-											{vehicle.name.value}
-										</h3>
-										<ul className='vehicle-detail-list'>
-											<li className='vehicle-detail'>
-												<MdCopyright className='vehicle-detail__icon' />
-												<span
-													className={`vehicle-detail__description ${
-														vehicle.brand.noAdded ? 'no-added' : ''
-													}`}
-												>
-													{vehicle.brand.value}
-												</span>
-											</li>
-											<li className='vehicle-detail'>
-												<MdPin className='vehicle-detail__icon' />
-												<span
-													className={`vehicle-detail__description ${
-														vehicle.licensePlate.noAdded ? 'no-added' : ''
-													}`}
-												>
-													{vehicle.licensePlate.value}
-												</span>
-											</li>
-											<li className='vehicle-detail'>
-												<MdExplore className='vehicle-detail__icon' />
-												<span
-													className={`vehicle-detail__description ${
-														vehicle.kilometers.noAdded ? 'no-added' : ''
-													}`}
-												>
-													{vehicle.kilometers.value}
-												</span>
-											</li>
-											<li className='vehicle-detail'>
-												<MdMenuBook className='vehicle-detail__icon' />
-												<span
-													className={`vehicle-detail__description ${
-														vehicle.model.noAdded ? 'no-added' : ''
-													}`}
-												>
-													{vehicle.model.value}
-												</span>
-											</li>
-											<li className='vehicle-detail'>
-												<MdCalendarMonth className='vehicle-detail__icon' />
-												<span
-													className={`vehicle-detail__description ${
-														vehicle.date.noAdded ? 'no-added' : ''
-													}`}
-												>
-													{vehicle.date.value}
-												</span>
-											</li>
-											<li className='vehicle-detail'>
-												<MdLocalGasStation className='vehicle-detail__icon' />
-												<span
-													className={`vehicle-detail__description ${
-														vehicle.fuel.noAdded ? 'no-added' : ''
-													}`}
-												>
-													{vehicle.fuel.value}
-												</span>
-											</li>
-										</ul>
-									</div>
-								</article>
-							);
-						})}
+						vehicles.map(vehicle => (
+							<VehicleCard key={vehicle.id.value} vehicle={vehicle} />
+						))}
 				</section>
 			</Section>
 			<AddVehicleModal />
