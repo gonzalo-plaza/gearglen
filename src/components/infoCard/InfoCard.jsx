@@ -5,6 +5,7 @@ export const InfoCard = ({ src, desktopSrc, alt, title, description }) => {
 		<article className='info-card'>
 			<picture className='info-card-picture'>
 				<source srcSet={desktopSrc} media='(min-width: 1024px)' />
+
 				<img className='info-card-picture__img' src={src} alt={alt} />
 			</picture>
 			<div className='info-card-description'>

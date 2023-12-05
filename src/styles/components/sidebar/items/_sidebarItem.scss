@@ -51,12 +51,12 @@
 	&.active {
 		background-color: $secondary-color;
 
-		& .sidebar-nav-link{
+		& .sidebar-nav-link {
 			&__icon {
 				color: $primary-color;
 			}
 
-			&__text{
+			&__text {
 				color: $primary-color;
 				font-weight: 600;
 			}
