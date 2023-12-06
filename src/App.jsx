@@ -1,12 +1,11 @@
 import { Navigate, useRoutes } from 'react-router-dom';
-import { Footer } from './components/footer/Footer';
-import Header from './components/header/Header';
-// import { Home } from './components/pages/Home';
-import Sidebar from './components/sidebar/Sidebar';
 import { lazy, Suspense } from 'react';
 
 const Home = lazy(() => import('./components/pages/Home'));
 const Vehicles = lazy(() => import('./components/pages/Vehicles'));
+const Sidebar = lazy(() => import('./components/sidebar/Sidebar'));
+const Footer = lazy(() => import('./components/footer/Footer'));
+const Header = lazy(() => import('./components/header/Header'));
 
 const routes = [
 	{
@@ -36,13 +35,19 @@ function App() {
 	return (
 		<>
 			<div className='main-container'>
-				<Header />
+				<Suspense>
+					<Header />
+				</Suspense>
 				<main role='main' className='main'>
 					{element}
 				</main>
-				<Footer />
+				<Suspense>
+					<Footer />
+				</Suspense>
 			</div>
-			<Sidebar />
+			<Suspense>
+				<Sidebar />
+			</Suspense>
 		</>
 	);
 }
