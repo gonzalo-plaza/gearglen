@@ -1,20 +1,14 @@
 import { Navigate, useRoutes } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
-
-const Home = lazy(() => import('./components/pages/Home'));
-const Vehicles = lazy(() => import('./components/pages/Vehicles'));
-const Sidebar = lazy(() => import('./components/sidebar/Sidebar'));
-const Footer = lazy(() => import('./components/footer/Footer'));
-const Header = lazy(() => import('./components/header/Header'));
+import Home from './components/pages/Home';
+import Vehicles from './components/pages/Vehicles';
+import Sidebar from './components/sidebar/Sidebar';
+import Footer from './components/footer/Footer';
+import Header from './components/header/Header';
 
 const routes = [
 	{
 		path: '/',
-		element: (
-			<Suspense>
-				<Home />
-			</Suspense>
-		),
+		element: <Home />,
 	},
 	{
 		path: '*',
@@ -22,11 +16,7 @@ const routes = [
 	},
 	{
 		path: 'mis-vehiculos',
-		element: (
-			<Suspense>
-				<Vehicles />
-			</Suspense>
-		),
+		element: <Vehicles />,
 	},
 ];
 
@@ -35,19 +25,13 @@ function App() {
 	return (
 		<>
 			<div className='main-container'>
-				<Suspense>
-					<Header />
-				</Suspense>
+				<Header />
 				<main role='main' className='main'>
 					{element}
 				</main>
-				<Suspense>
-					<Footer />
-				</Suspense>
+				<Footer />
 			</div>
-			<Suspense>
-				<Sidebar />
-			</Suspense>
+			<Sidebar />
 		</>
 	);
 }
