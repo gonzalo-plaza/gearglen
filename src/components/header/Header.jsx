@@ -17,9 +17,14 @@ function Header() {
 	return (
 		<header className='header-container'>
 			<div>
-				<div className='icon-item is-menu' onClick={handleClick} role='button'>
+				<button
+					className='icon-item is-menu'
+					onClick={handleClick}
+					role='button'
+					aria-label='open menu'
+				>
 					<MdMenu className='icon-item__content' />
-				</div>
+				</button>
 			</div>
 			<div className='icons-container'>
 				<div className='icon-item'>
