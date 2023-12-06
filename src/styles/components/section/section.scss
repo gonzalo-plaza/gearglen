@@ -24,7 +24,10 @@
 			place-items: center;
 
 			.section-description__img {
-				max-width: 65%;
+				max-width: 100%;
+				&.is-reduced {
+					max-width: 75%;
+				}
 			}
 		}
 	}
