@@ -1,7 +1,7 @@
 .notifications-icon {
 	position: relative;
 	&__ellipse {
-		background-color: $third-color;
+		background-color: #ce60f3;
 		width: $size-2-rem;
 		height: $size-2-rem;
 		position: absolute;
@@ -12,6 +12,6 @@
 
 	&__bell {
 		font-size: $font-size-2xl;
-		color: #4a4a4a;
+		color: $secondary-color;
 	}
 }
