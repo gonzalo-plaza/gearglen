@@ -1,3 +1,6 @@
+// Styles
+import './homeInfoCards.scss';
+
 import { InfoCard } from '../infoCard/InfoCard';
 
 export const HomeInfoCards = () => {

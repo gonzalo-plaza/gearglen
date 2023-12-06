@@ -1,3 +1,6 @@
+// Styles
+import './sidebarUser.scss';
+
 // Components
 import { MdSupervisedUserCircle } from 'react-icons/md';
 

@@ -1,6 +1,6 @@
 import { Section } from '../section/Section';
 import { HomeInfoCards } from '../homeInfoCards/HomeInfoCards';
-export const Home = () => {
+const Home = () => {
 	return (
 		<>
 			<Section
@@ -31,3 +31,5 @@ export const Home = () => {
 		</>
 	);
 };
+
+export default Home;

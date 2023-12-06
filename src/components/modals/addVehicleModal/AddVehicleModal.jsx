@@ -1,3 +1,6 @@
+// Styles
+import './addVehicleModal.scss';
+
 import { MdClear } from 'react-icons/md';
 
 import { useVehicleModalStore } from '../../../store/vehicleModalStore';

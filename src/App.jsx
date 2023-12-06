@@ -1,15 +1,21 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 import { Footer } from './components/footer/Footer';
 import Header from './components/header/Header';
-import { Home } from './components/pages/Home';
+// import { Home } from './components/pages/Home';
 import Sidebar from './components/sidebar/Sidebar';
+import { lazy, Suspense } from 'react';
 
-import { Vehicles } from './components/pages/Vehicles';
+const Home = lazy(() => import('./components/pages/Home'));
+const Vehicles = lazy(() => import('./components/pages/Vehicles'));
 
 const routes = [
 	{
 		path: '/',
-		element: <Home />,
+		element: (
+			<Suspense>
+				<Home />
+			</Suspense>
+		),
 	},
 	{
 		path: '*',
@@ -17,7 +23,11 @@ const routes = [
 	},
 	{
 		path: 'mis-vehiculos',
-		element: <Vehicles />,
+		element: (
+			<Suspense>
+				<Vehicles />
+			</Suspense>
+		),
 	},
 ];
 

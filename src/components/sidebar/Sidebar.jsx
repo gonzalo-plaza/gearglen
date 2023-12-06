@@ -1,3 +1,6 @@
+// Styles
+import './sidebar.scss';
+
 // Components
 import {
 	MdDirectionsCarFilled,
