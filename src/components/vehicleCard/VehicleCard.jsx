@@ -9,6 +9,8 @@ import {
 	MdDelete,
 } from 'react-icons/md';
 
+import { vehiclesImgProperties } from '../../constants/vehiclesConstants.js';
+
 import PropTypes from 'prop-types';
 
 export const VehicleCard = ({ vehicle }) => {
@@ -16,22 +18,37 @@ export const VehicleCard = ({ vehicle }) => {
 	const handleRemove = id => () => {
 		removeVehicle(id);
 	};
+
+	const vehicleType = vehicle.type.value;
+
+	const vehicleImg = {
+		src: `./images/vehicle-${vehicleType}.webp`,
+		alt: `${vehiclesImgProperties[vehicleType].alt}`,
+		width: `${vehiclesImgProperties[vehicleType].width}`,
+		height: `${vehiclesImgProperties[vehicleType].width}`,
+	};
 	return (
 		<article key={vehicle.id.value} className='vehicle-card'>
 			<header className='vehicle-card__header'>
 				<img
 					className='vehicle-card__img'
-					src={`./images/vehicle-${vehicle.type.value}.png`}
+					src={vehicleImg.src}
+					width={vehicleImg.width}
+					height={vehicleImg.height}
+					alt={vehicleImg.alt}
 				/>
 				<button
 					className='remove-vehicle-button'
 					onClick={handleRemove(vehicle.id.value)}
 				>
-					<MdDelete className='remove-vehicle-button__icon' />
+					<MdDelete
+						className='remove-vehicle-button__icon'
+						aria-label='Remove vehicle'
+					/>
 				</button>
 			</header>
 			<div>
-				<h3 className='vehicle-card__title'>{vehicle.name.value}</h3>
+				<p className='vehicle-card__title'>{vehicle.name.value}</p>
 				<ul className='vehicle-card-detail-list'>
 					<li className='vehicle-card-detail'>
 						<MdCopyright className='vehicle-card-detail__icon' />
