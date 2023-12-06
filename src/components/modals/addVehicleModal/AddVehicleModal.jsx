@@ -4,11 +4,7 @@ import './addVehicleModal.scss';
 import { MdClear } from 'react-icons/md';
 
 import { useVehicleModalStore } from '../../../store/vehicleModalStore';
-import { lazy, Suspense } from 'react';
-
-const AddVehicleForm = lazy(
-	() => import('../../forms/addVehicleForm/AddVehicleForm'),
-);
+import AddVehicleForm from '../../forms/addVehicleForm/AddVehicleForm';
 
 const AddVehicleModal = () => {
 	const { showVehicleModal, showVehicleModalClass, hideVehicleModal } =
@@ -36,9 +32,7 @@ const AddVehicleModal = () => {
 					</div>
 				</header>
 				<div className='vehicle-modal-card-body'>
-					<Suspense>
-						<AddVehicleForm />
-					</Suspense>
+					<AddVehicleForm />
 				</div>
 			</section>
 		</section>
