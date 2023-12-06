@@ -29,9 +29,15 @@
 		}
 	}
 
-	&__img {
+	&__picture {
+		display: flex;
+		justify-content: center;
 		margin-top: $size-6-px;
 		margin-bottom: $size-8-px;
+	}
+
+	&__img {
+		height: 100%;
 	}
 
 	&__text {
