@@ -24,14 +24,23 @@
 			place-items: center;
 
 			.section-description__img {
-				max-width: 65%;
+				max-width: 100%;
+				&.is-reduced {
+					max-width: 75%;
+				}
 			}
 		}
 	}
 
-	&__img {
+	&__picture {
+		display: flex;
+		justify-content: center;
 		margin-top: $size-6-px;
 		margin-bottom: $size-8-px;
+	}
+
+	&__img {
+		height: 100%;
 	}
 
 	&__text {

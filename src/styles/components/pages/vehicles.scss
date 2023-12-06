@@ -6,13 +6,15 @@
 
 .add-vehicle-button {
 	cursor: pointer;
+	color: $light-color;
+	font-weight: 500;
 	width: 320px;
 	min-height: 50px;
 	border: none;
 	border-radius: 8px;
-	background-color: $light-color;
+	background-color: $primary-color;
 	padding: $size-2-px;
-	box-shadow: 0px 1px 4px 0px rgba(234, 172, 255, 0.25);
+	box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 
 	display: flex;
 	justify-content: center;
@@ -20,7 +22,7 @@
 	gap: $size-2-px;
 
 	&:active {
-		box-shadow: inset 0px 1px 4px 0px rgba(234, 172, 255, 0.25);
+		box-shadow: inset 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 	}
 
 	@include mq-tablet {

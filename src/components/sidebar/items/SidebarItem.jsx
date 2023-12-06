@@ -18,6 +18,7 @@ function SideBarItem({ Icon, title, blocked, href, text }) {
 				to={href}
 				title={title}
 				className={`sidebar-nav-link ${blocked ? 'is-blocked' : ''}`}
+				aria-label={text}
 			>
 				<Icon
 					className={`sidebar-nav-link__icon ${blocked ? 'is-blocked' : ''}`}

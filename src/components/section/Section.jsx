@@ -1,6 +1,18 @@
 import PropTypes from 'prop-types';
 
-export const Section = ({ children, title, img, description }) => {
+export const Section = ({
+	img,
+	title,
+	children,
+	imgWidth,
+	imgHeight,
+	reduceImg,
+	altImgText,
+	desktopImg,
+	description,
+	desktopImgWidth,
+	desktopImgHeight,
+}) => {
 	const hasDescriptionClass = description
 		? 'has-description'
 		: 'has-no-description';
@@ -13,7 +25,23 @@ export const Section = ({ children, title, img, description }) => {
 				</h1>
 			</header>
 			<div className={`section-description ${hasDescriptionClass}`}>
-				<img className='section-description__img' src={img} />
+				<picture className='section-description__picture'>
+					<source
+						srcSet={desktopImg}
+						width={desktopImgWidth}
+						height={desktopImgHeight}
+						media='(min-width: 1024px)'
+					/>
+					<img
+						className={`section-description__img ${
+							reduceImg ? 'is-reduced' : ''
+						}`}
+						src={img}
+						width={imgWidth}
+						height={imgHeight}
+						alt={altImgText}
+					/>
+				</picture>
 				{description && (
 					<p className='section-description__text'>{description}</p>
 				)}
@@ -24,8 +52,15 @@ export const Section = ({ children, title, img, description }) => {
 };
 
 Section.propTypes = {
-	children: PropTypes.any,
-	title: PropTypes.string,
 	img: PropTypes.string,
+	title: PropTypes.string,
+	children: PropTypes.any,
+	imgWidth: PropTypes.string,
+	imgHeight: PropTypes.string,
+	reduceImg: PropTypes.string,
+	altImgText: PropTypes.string,
+	desktopImg: PropTypes.string,
 	description: PropTypes.string,
+	desktopImgWidth: PropTypes.string,
+	desktopImgHeight: PropTypes.string,
 };
