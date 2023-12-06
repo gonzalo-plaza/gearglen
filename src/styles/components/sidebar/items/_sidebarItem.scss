@@ -29,10 +29,6 @@
 		&.is-blocked-icon {
 			font-size: 22px;
 		}
-
-		&.is-blocked {
-			opacity: 0.5;
-		}
 	}
 
 	&__text {
@@ -42,10 +38,6 @@
 		flex-grow: 1;
 
 		color: #fff;
-
-		&.is-blocked {
-			opacity: 0.5;
-		}
 	}
 
 	&.active {
