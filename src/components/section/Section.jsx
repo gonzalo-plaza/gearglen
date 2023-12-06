@@ -1,6 +1,16 @@
 import PropTypes from 'prop-types';
 
-export const Section = ({ children, title, img, mobileImg, description }) => {
+export const Section = ({
+	children,
+	title,
+	img,
+	desktopImgHeight,
+	desktopImgWidth,
+	imgWidth,
+	imgHeight,
+	mobileImg,
+	description,
+}) => {
 	const hasDescriptionClass = description
 		? 'has-description'
 		: 'has-no-description';
@@ -13,9 +23,20 @@ export const Section = ({ children, title, img, mobileImg, description }) => {
 				</h1>
 			</header>
 			<div className={`section-description ${hasDescriptionClass}`}>
-				<picture className='section-description__img'>
-					<source srcSet={img} media='(min-width: 1024px)' />
-					<img src={mobileImg} alt={img} />
+				<picture className='section-description__picture'>
+					<source
+						srcSet={img}
+						width={desktopImgWidth}
+						height={desktopImgHeight}
+						media='(min-width: 1024px)'
+					/>
+					<img
+						className='section-description__img'
+						src={mobileImg}
+						width={imgWidth}
+						height={imgHeight}
+						alt={img}
+					/>
 				</picture>
 				{description && (
 					<p className='section-description__text'>{description}</p>
