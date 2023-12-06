@@ -1,3 +1,6 @@
+// Styles
+import './sidebarItem.scss';
+
 import { NavLink } from 'react-router-dom';
 import { MdLock } from 'react-icons/md';
 import PropTypes from 'prop-types';

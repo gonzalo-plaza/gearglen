@@ -1,3 +1,6 @@
+// Styles
+import './notificationsIcon.scss';
+
 // Components
 import { MdNotificationsNone } from 'react-icons/md';
 

@@ -1,12 +1,19 @@
+// Styles
+import './vehicles.scss';
+
 import { Section } from '../section/Section';
 import { MdAddCircleOutline } from 'react-icons/md';
 import { useVehicleModalStore } from '../../store/vehicleModalStore';
-import { AddVehicleModal } from '../modals/addVehicleModal/AddVehicleModal';
 import { VehicleCard } from '../vehicleCard/VehicleCard';
 
 import { useVehiclesStore } from '../../store/vehiclesStore';
+import { lazy, Suspense } from 'react';
 
-export const Vehicles = () => {
+const AddVehicleModal = lazy(
+	() => import('../modals/addVehicleModal/AddVehicleModal'),
+);
+
+const Vehicles = () => {
 	const { launchVehicleModal } = useVehicleModalStore();
 	const { vehicles } = useVehiclesStore();
 
@@ -39,7 +46,11 @@ export const Vehicles = () => {
 						))}
 				</section>
 			</Section>
-			<AddVehicleModal />
+			<Suspense>
+				<AddVehicleModal />
+			</Suspense>
 		</>
 	);
 };
+
+export default Vehicles;

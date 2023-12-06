@@ -1,3 +1,6 @@
+@import '../../styles/tokens/all';
+@import '../../styles/mixins/all';
+
 .home-info-cards-container {
 	@include grid-max-auto-columns($size-2-px, 2, 288px);
 

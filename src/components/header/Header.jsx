@@ -1,3 +1,6 @@
+// Styles
+import './header.scss';
+
 // Components
 import {
 	MdSupervisedUserCircle,

@@ -1,3 +1,6 @@
+// Styles
+import './infoCard.scss';
+
 import PropTypes from 'prop-types';
 
 export const InfoCard = ({ src, desktopSrc, alt, title, description }) => {

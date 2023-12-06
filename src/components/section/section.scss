@@ -1,3 +1,6 @@
+@import '../../styles/tokens/all';
+@import '../../styles/mixins/all';
+
 .section {
 	max-width: 2000px;
 	margin: 0px auto $size-6-px auto;

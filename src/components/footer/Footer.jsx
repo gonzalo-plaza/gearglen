@@ -1,7 +1,10 @@
+// Styles
+import './footer.scss';
+
 import { FooterRightSection } from './footerRightSection/FooterRightSection';
 import { FooterLeftSection } from './leftSection/FooterLeftSection';
 
-export const Footer = () => {
+const Footer = () => {
 	return (
 		<footer className='footer'>
 			<FooterLeftSection />
@@ -9,3 +12,5 @@ export const Footer = () => {
 		</footer>
 	);
 };
+
+export default Footer;

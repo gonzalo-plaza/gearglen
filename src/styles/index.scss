@@ -3,21 +3,6 @@
 @import './tokens/all.scss';
 @import './mixins/all.scss';
 
-//Components
-@import './components/header/header';
-@import './components/icons/notificationsIcon';
-@import './components/sidebar/sidebar';
-@import './components/sidebar/header/sidebarHeader';
-@import './components/modals/addVehicleModal/addVehicleModal.scss';
-@import './components/sidebar/items/sidebarItem';
-@import './components/sidebar/user/sidebarUser';
-@import './components/infoCard/infoCard.scss';
-@import './components/footer/footer.scss';
-@import './components/section/section.scss';
-@import './components/homeInfoCards/homeInfoCards.scss';
-@import './components/pages/vehicles.scss';
-@import './components/vehicleCard/vehicleCard.scss';
-
 /*
   1. Use a more-intuitive box-sizing model.
 */

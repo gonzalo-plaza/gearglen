@@ -18,7 +18,7 @@ import {
 import { InputField } from './fields/InputField';
 import { SelectField } from './fields/SelectField';
 
-export const AddVehicleForm = () => {
+const AddVehicleForm = () => {
 	const { hideVehicleModal } = useVehicleModalStore();
 	const { vehicles, addVehicle } = useVehiclesStore();
 	const {
@@ -158,3 +158,5 @@ export const AddVehicleForm = () => {
 		</>
 	);
 };
+
+export default AddVehicleForm;

@@ -1,3 +1,6 @@
+// Styles
+import './section.scss';
+
 import PropTypes from 'prop-types';
 
 export const Section = ({

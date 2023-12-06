@@ -1,3 +1,6 @@
+// Styles
+import './vehicleCard.scss';
+
 import { useVehiclesStore } from '../../store/vehiclesStore';
 import {
 	MdCopyright,

@@ -1,9 +1,16 @@
+// Styles
+import './addVehicleModal.scss';
+
 import { MdClear } from 'react-icons/md';
 
 import { useVehicleModalStore } from '../../../store/vehicleModalStore';
-import { AddVehicleForm } from '../../forms/addVehicleForm/AddVehicleForm';
+import { lazy, Suspense } from 'react';
 
-export const AddVehicleModal = () => {
+const AddVehicleForm = lazy(
+	() => import('../../forms/addVehicleForm/AddVehicleForm'),
+);
+
+const AddVehicleModal = () => {
 	const { showVehicleModal, showVehicleModalClass, hideVehicleModal } =
 		useVehicleModalStore();
 
@@ -29,9 +36,13 @@ export const AddVehicleModal = () => {
 					</div>
 				</header>
 				<div className='vehicle-modal-card-body'>
-					<AddVehicleForm />
+					<Suspense>
+						<AddVehicleForm />
+					</Suspense>
 				</div>
 			</section>
 		</section>
 	);
 };
+
+export default AddVehicleModal;
