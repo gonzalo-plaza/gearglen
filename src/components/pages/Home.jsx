@@ -11,7 +11,7 @@ const Home = () => {
 				desktopImg='./images/vehicles-collection.webp'
 				desktopImgHeight='606'
 				desktopImgWidth='1200'
-				reduceImg={true}
+				reduceImg
 				altImgText='Varios coches y motos de color azul orientados hacia el frente'
 			>
 				<HomeInfoCards />
@@ -24,7 +24,7 @@ const Home = () => {
 				desktopImg='./images/car-maintenance.webp'
 				desktopImgHeight='592'
 				desktopImgWidth='1100'
-				reduceImg={true}
+				reduceImg
 				altImgText='SUV azul en un taller mecánico con herramientas y piezas de automóvil colgadas en la pared del fondo'
 				description='Disfruta de la comodidad de tener tu vehículo en perfecto estado con GearGlen. Gestiona el mantenimiento y las reparaciones con nuestro sistema completo que garantiza la eficiencia y seguridad de cada viaje.'
 			></Section>
