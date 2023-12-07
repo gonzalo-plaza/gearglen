@@ -1,8 +1,29 @@
-# React + Vite
+# GearGlen
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Installation
 
-Currently, two official plugins are available:
+To install `gearglen`, follow these steps:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone the repository
+   ```sh
+   git clone https://github.com/gonzalo-plaza/gearglen
+   ```
+2. Open the folder generated, if you are using the terminal could be:
+   ```sh
+   cd gearglen
+   ```
+3. When you are in the folder of the project (<path>/gearglen/) run the command
+   ```sh
+   npm install
+   ```
+
+## Usage
+
+Here are some useful commands for working with `gearglen`:
+
+- `npm run dev`: Starts the development server with Vite.
+- `npm run build`: Builds the project for production.
+- `npm run lint`: Runs ESLint to identify issues in the code.
+- `npm run preview`: Allows previewing the production build.
+- `npm run format`: Formats the code with Prettier.
+- `npm run lint-fix`: Automatically fixes code issues identified by ESLint.
