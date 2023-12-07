@@ -51,7 +51,7 @@ export const VehicleCard = ({ vehicle }) => {
 				</button>
 			</header>
 			<div>
-				<p className='vehicle-card__title'>{vehicle.name.value}</p>
+				<p className='vehicle-card__title'><b>{vehicle.name.value}</b></p>
 				<ul className='vehicle-card-detail-list'>
 					<li className='vehicle-card-detail'>
 						<MdCopyright className='vehicle-card-detail__icon' />
