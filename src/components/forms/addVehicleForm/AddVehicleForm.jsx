@@ -125,7 +125,10 @@ const AddVehicleForm = () => {
 							name='licensePlate'
 							errors={errors}
 							placeholder='Introduce la matrícula'
-							register={register('licensePlate', licensePlateValidation)}
+							register={register(
+								'licensePlate',
+								licensePlateValidation(vehicles),
+							)}
 						/>
 					</div>
 					<div className='add-vehicle-form-item-container'>
