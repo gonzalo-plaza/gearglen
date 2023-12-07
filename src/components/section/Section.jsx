@@ -60,7 +60,7 @@ Section.propTypes = {
 	children: PropTypes.any,
 	imgWidth: PropTypes.string,
 	imgHeight: PropTypes.string,
-	reduceImg: PropTypes.string,
+	reduceImg: PropTypes.bool,
 	altImgText: PropTypes.string,
 	desktopImg: PropTypes.string,
 	description: PropTypes.string,

@@ -191,13 +191,18 @@
 }
 
 .add-vehicle-form-error-message {
+	font-size: $font-size-xs;
 	display: flex;
 	align-items: center;
-	gap: $size-2-px;
+	gap: $size-1-px;
 	margin-top: 6px;
 	color: #d70c31;
 
 	&__icon {
 		flex-shrink: 0;
+	}
+
+	@include mq-tablet{
+		font-size: $font-size-sm;
 	}
 }

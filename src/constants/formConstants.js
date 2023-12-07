@@ -14,11 +14,11 @@ export const carNameValidation = vehicles => {
 	return {
 		required: true,
 		validate: value => {
-			const test = vehicles.find(vehicle => {
+			const vehicleNameMatch = vehicles.find(vehicle => {
 				return vehicle.name?.value === value;
 			});
 
-			if (test) {
+			if (vehicleNameMatch) {
 				return 'Ya tienes un vehículo con este nombre';
 			}
 
@@ -30,11 +30,24 @@ export const carNameValidation = vehicles => {
 const licensePlateRegEx =
 	/^(([A-Z]{1,3}-?\d{1,6})|([A-Z]{1,2}-?\d{4}-?[A-Z]{1,2})|\d{4}[BCDFGHJKLMNPRSTVWXYZ]{3}|[A-Z]\d{4}[A-Z]{3})$/;
 
-export const licensePlateValidation = {
-	pattern: {
-		value: licensePlateRegEx,
-		message: 'Introduce una matrícula correcta (ES)',
-	},
+export const licensePlateValidation = (vehicles) => {
+	return {
+		pattern: {
+			value: licensePlateRegEx,
+			message: 'Introduce una matrícula correcta (ES)',
+		},
+		validate: value => {
+			const licensePlateMatch = vehicles.find(vehicle => {
+				return vehicle.licensePlate?.value === value;
+			});
+
+			if (licensePlateMatch) {
+				return 'Ya tienes un vehículo con esta matrícula';
+			}
+
+			return true;
+		},
+	}
 };
 
 export const licenseDateValidation = {
