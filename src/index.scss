@@ -1,7 +1,5 @@
-@import url('./utils/fonts/goldman.scss');
-@import url('./utils/fonts/inter.scss');
-@import './tokens/all.scss';
-@import './mixins/all.scss';
+@import url('./styles/utils/fonts/goldman.scss');
+@import url('./styles/utils/fonts/inter.scss');
 
 /*
   1. Use a more-intuitive box-sizing model.
@@ -82,39 +80,4 @@ h6 {
 #root,
 #__next {
 	isolation: isolate;
-}
-
-.app-container {
-	@media (min-width: 1024px) {
-		display: flex;
-		flex-direction: row-reverse;
-	}
-}
-
-.main-container {
-	min-width: 320px;
-
-	@media (min-width: 1024px) {
-		height: 100vh;
-		overflow-y: scroll;
-		align-self: flex-start;
-		flex-grow: 1;
-	}
-}
-
-.main {
-	min-height: unquote('calc(100vh - 117px)');
-	padding: $size-4-px;
-
-	@include mq-tablet{
-		min-height: unquote('calc(100vh - 123px)');
-	}
-
-	@include mq-desktop{
-		min-height: unquote('calc(100vh - 129px)');
-	}
-}
-
-.scroll-block {
-	overflow: hidden;
 }
