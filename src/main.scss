@@ -27,11 +27,11 @@
 	min-height: unquote('calc(100vh - 117px)');
 	padding: $size-4-px;
 
-	@include mq-tablet{
+	@include mq-tablet {
 		min-height: unquote('calc(100vh - 123px)');
 	}
 
-	@include mq-desktop{
+	@include mq-desktop {
 		min-height: unquote('calc(100vh - 129px)');
 	}
 }

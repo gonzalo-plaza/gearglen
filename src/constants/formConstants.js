@@ -13,6 +13,10 @@ export const basicSelectValidation = {
 export const carNameValidation = vehicles => {
 	return {
 		required: true,
+		maxLength: {
+			value: 60,
+			message: 'El nombre puede tener un máximo de 60 caractéres',
+		},
 		validate: value => {
 			const vehicleNameMatch = vehicles.find(vehicle => {
 				return vehicle.name?.value === value;
@@ -30,7 +34,7 @@ export const carNameValidation = vehicles => {
 const licensePlateRegEx =
 	/^(([A-Z]{1,3}-?\d{1,6})|([A-Z]{1,2}-?\d{4}-?[A-Z]{1,2})|\d{4}[BCDFGHJKLMNPRSTVWXYZ]{3}|[A-Z]\d{4}[A-Z]{3})$/;
 
-export const licensePlateValidation = (vehicles) => {
+export const licensePlateValidation = vehicles => {
 	return {
 		pattern: {
 			value: licensePlateRegEx,
@@ -47,7 +51,21 @@ export const licensePlateValidation = (vehicles) => {
 
 			return true;
 		},
-	}
+	};
+};
+
+export const kilometersValidation = {
+	max: {
+		value: 9999999,
+		message: 'El valor máximo es 9999999',
+	},
+};
+
+export const modelValidation = {
+	maxLength: {
+		value: 60,
+		message: 'El modelo puede tener un máximo de 60 caractéres',
+	},
 };
 
 export const licenseDateValidation = {

@@ -7,6 +7,7 @@ export const InputField = ({
 	type,
 	errors,
 	register,
+	maxLength,
 	labelValue,
 	placeholder,
 }) => {
@@ -21,6 +22,7 @@ export const InputField = ({
 				placeholder={placeholder}
 				{...register}
 				max={max ?? null}
+				maxLength={maxLength ?? null}
 			/>
 			{errors?.[name]?.message && (
 				<p className='add-vehicle-form-error-message'>
@@ -34,10 +36,11 @@ export const InputField = ({
 
 InputField.propTypes = {
 	max: PropTypes.string,
+	maxLength: PropTypes.string,
+	placeholder: PropTypes.string,
 	name: PropTypes.string.isRequired,
 	type: PropTypes.string.isRequired,
 	errors: PropTypes.object.isRequired,
 	register: PropTypes.object.isRequired,
 	labelValue: PropTypes.string.isRequired,
-	placeholder: PropTypes.string,
 };
