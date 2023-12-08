@@ -202,7 +202,7 @@
 		flex-shrink: 0;
 	}
 
-	@include mq-tablet{
+	@include mq-tablet {
 		font-size: $font-size-sm;
 	}
 }
