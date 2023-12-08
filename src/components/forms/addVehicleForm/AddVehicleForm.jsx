@@ -6,14 +6,16 @@ import {
 	getMaxDate,
 } from '../../../helpers/formHelpers';
 import {
-	formDefaultValues,
-	basicSelectValidation,
-	carNameValidation,
-	licensePlateValidation,
-	licenseDateValidation,
-	vehiclesOptionsArray,
-	brandsOptionsArray,
+	modelValidation,
 	fuelOptionsArray,
+	formDefaultValues,
+	carNameValidation,
+	brandsOptionsArray,
+	kilometersValidation,
+	vehiclesOptionsArray,
+	licenseDateValidation,
+	basicSelectValidation,
+	licensePlateValidation,
 } from '../../../constants/formConstants';
 import { InputField } from './fields/InputField';
 import { SelectField } from './fields/SelectField';
@@ -54,9 +56,10 @@ const AddVehicleForm = () => {
 				<div className='add-vehicle-form-input-group'>
 					<div className='add-vehicle-form-item-container grow-1'>
 						<InputField
-							labelValue='Nombre del vehículo'
+							labelValue='Nombre del vehículo *'
 							type='text'
 							errors={errors}
+							maxLength='60'
 							register={register('name', carNameValidation(vehicles))}
 							placeholder='Introduce el nombre de tu vehículo'
 							name='name'
@@ -64,7 +67,7 @@ const AddVehicleForm = () => {
 					</div>
 					<div className='add-vehicle-form-item-container'>
 						<SelectField
-							labelValue='Vehículo'
+							labelValue='Vehículo *'
 							selectName='type'
 							errors={errors}
 							register={register('type', basicSelectValidation)}
@@ -80,13 +83,14 @@ const AddVehicleForm = () => {
 							labelValue='Kilómetros'
 							errors={errors}
 							placeholder='Introduce los kilómetros'
-							register={register('kilometers')}
+							register={register('kilometers', kilometersValidation)}
 							name='kilometers'
+							max='9999999'
 						/>
 					</div>
 					<div className='add-vehicle-form-item-container'>
 						<SelectField
-							labelValue='Combustible'
+							labelValue='Combustible *'
 							selectName='fuel'
 							errors={errors}
 							register={register('fuel', basicSelectValidation)}
@@ -98,7 +102,7 @@ const AddVehicleForm = () => {
 				<div className='add-vehicle-form-input-group'>
 					<div className='add-vehicle-form-item-container'>
 						<SelectField
-							labelValue='Marca'
+							labelValue='Marca *'
 							selectName='brand'
 							errors={errors}
 							register={register('brand', basicSelectValidation)}
@@ -113,7 +117,8 @@ const AddVehicleForm = () => {
 							labelValue='Modelo'
 							errors={errors}
 							placeholder='Introduce el modelo'
-							register={register('model')}
+							maxLength='60'
+							register={register('model', modelValidation)}
 						/>
 					</div>
 				</div>
