@@ -4,7 +4,7 @@ export const FooterSectionText = ({ Icon, text }) => {
 	const classNameResult = `footer-section__text ${Icon ? 'has-icon' : ''}`;
 	return (
 		<p className={classNameResult}>
-			{Icon && <Icon />}
+			{Icon && <Icon className='footer-section__icon' />}
 			<span>{text}</span>
 		</p>
 	);

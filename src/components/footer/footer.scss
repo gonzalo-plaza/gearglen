@@ -3,21 +3,17 @@
 
 .footer {
 	font-family: Goldman;
-	font-size: 0.625rem;
+	font-size: $font-size-xs;
 	color: $light-color;
 	background-color: $primary-color;
 	padding: $size-2-px;
 
 	display: flex;
 	justify-content: space-between;
-	gap: $size-2-px;
-
-	@include mq-tablet {
-		font-size: 0.688rem;
-	}
+	gap: $size-4-px;
 
 	@include mq-desktop {
-		font-size: 0.813rem;
+		font-size: $font-size-sm;
 	}
 }
 
@@ -27,35 +23,29 @@
 	justify-content: space-between;
 
 	&.is-left {
-		min-width: 116px;
+		flex-shrink: 0;
 	}
 
 	&.is-right {
 		text-align: right;
-		max-width: 210px;
-
-		@include mq-tablet {
-			max-width: none;
-		}
 	}
 
 	&__text {
 		&.has-icon {
 			display: flex;
-			line-height: 10px;
-			height: 15px;
+			line-height: 11px;
+			height: 17px;
 			align-items: center;
 			gap: $size-1-px;
 
-			@include mq-tablet {
-				line-height: 11px;
-				height: 17px;
-			}
-
 			@include mq-desktop {
-				line-height: 13px;
-				height: 19px;
+				line-height: 14px;
+				height: $size-5-px;
 			}
 		}
+	}
+
+	&__icon {
+		flex-shrink: 0;
 	}
 }
